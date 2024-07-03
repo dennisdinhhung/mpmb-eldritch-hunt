@@ -1,12 +1,12 @@
 if (sheetVersion < 13001012) { throw "This script was made for a newer version of the sheet (v13.1.14). Please use the latest version and try again.\nYou can get the latest version at www.flapkan.com."; };
-var iFileName = "Eldritch_Hunt_test_race.js";
+var iFileName = "Eldritch_Hunt_Race.js";
 RequiredSheetVersion("13.1.12");
 
 SourceList["EldritchHunt"] = {
   name: "Steinhardt's Guide to the Eldritch Hunt",
   abbreviation: "SGttEldHunt",
   abbreviationSpellsheet: "SGttEldHunt",
-  group: "Campaign Sourcebooks",
+  group: "3rd Party Campaign Sourcebooks",
   date: "2024/07/01"
 };
 
