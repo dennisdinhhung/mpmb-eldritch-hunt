@@ -589,8 +589,8 @@ AddSubClass("bard", "college of the apocalypse", {
 
 AddSubClass("cleric", "guardian domain", {
   regExpSearch:
-    /^(?=.*(cleric|priest|clergy|acolyte))(?=.*(knowledge|wisdom|learning)).*$/i,
-  subname: "Knowledge Domain",
+    /^(?=.*(cleric|priest|clergy|acolyte))(?=.*guardian).*$/i,
+  subname: "Guardian Domain",
   source: [["EldritchHunt", 136]],
   spellcastingExtra: [
     "protection from evil and good",
@@ -626,6 +626,34 @@ AddSubClass("cleric", "guardian domain", {
         "The guardian appears for 1 hour, until it is reduced to 0 hit points, until you use this feature to summon the angel again, or until you die.",
       ]),
       action: ["action", ""],
+    },
+    subclassfeature6: {
+      name: "Angelic Protection",
+      source: [["EldritchHunt", 136]],
+      minlevel: 6,
+      description: desc([
+        "When you use your Channel Divinity to summon a Guardian Angel, it immediately casts warding bond (no action required) on a friendly creature that it can see (you included), ignoring the components of the spell.",
+      ]),
+    },
+    subclassfeature8: {
+      name: "Divine Strike",
+      source: [["EldritchHunt", 136]],
+      minlevel: 8,
+      description: desc([
+        "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+        "Your Guardian Angel also gains this feature."
+      ]),
+    },
+    subclassfeature17: {
+      name: "Aura of Defense",
+      source: [["EldritchHunt", 136]],
+      minlevel: 8,
+      description: desc([
+        "When your Guardian Angel casts warding bond, it can target a number of allied creatures (including you) equal to your Wisdom modifier (minimum 1). The spell functions as if the angel had created a warding bond with each individual creature. In addition, upon being summoned, the Guardian Angel gains temporary hit points equal to 5 times the number of creatures targeted by the spell.",
+        "Once you use this feature, you can’t use it again until you finish a long rest."
+      ]),
+      recovery: "long rest",
+      oncelr: true,
     },
   },
 });
