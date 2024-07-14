@@ -657,3 +657,114 @@ AddSubClass("cleric", "guardian domain", {
     },
   },
 });
+
+AddSubClass("druid", "circle of symbiosis", {
+	regExpSearch : /^(?=.*(druid|shaman))((?=.*\bsymbiosis\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
+  subname: "Circle of Symbiosis",
+  source: [["EldritchHunt", 137]],
+  features: {
+    "subclassfeature2" : {
+			name : "Spells",
+      source: [["EldritchHunt", 137]],
+			minlevel : 2,
+			description : desc([
+				"At 2nd level, you learn the shillelagh cantrip. This cantrip doesn’t count against the number of druid cantrips you know.",
+				"At 3rd, 5th, 7th, and 9th level you gain access to the spells listed for that level in the Circle of Symbiosis Spells table. Once you gain access to one of these spells, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you gain access to a spell that doesn't appear on the druid spell list, the spell is nonetheless a druid spell for you."
+			]),
+			spellcastingBonus : {
+				name : "Circle Spells",
+				spells : ["shillelagh"],
+				selection : ["shillelagh"]
+			},
+      //TODO: need to add custom Eldritch Hunt spells
+			spellcastingExtra : ["barkskin", "skeletal tail", "osseous cage", "plant growth", "maiden of bones", "stoneskin", "forest of dread", "tree stride"]
+		},
+    "subclassfeature2.1" : {
+			name : "Wickerbone Behemoth",
+      source: [["EldritchHunt", 140]],
+			minlevel : 2,
+			action : ["action", ""],
+			description : desc([
+				"As an action, you may expend a use of your Wild Shape to awaken Nature’s anger, turning into a behemoth, rather than transforming into a beast form. A deer skull, wooden skin, goat hooves, or other such natural gifts overtake your body. While this feature is active, you gain the following benefits:",
+				"● Your arms count as clubs, each under the effect of the shillelagh spell.",
+        "● You are under the effect of the barkskin spell, although you do not need to concentrate on it. In addition, whenever a creature damages you with an attack, your skin splinters and all creatures of your choice within 5 feet of you take 1d4 magical piercing damage. This damage increases to 2d4 at 10th level.",
+        "● The stress of battle stimulates your organism to fight and survive. At the start of each of your turns, you regain hit points equal to half the damage taken since the start of your previous turn (rounded down, minimum of 0), up to a maximum of three times your Wisdom modifier. This regeneration doesn’t work if you are unconscious.",
+        "These benefits last for 10 minutes, or until you use your Wild Shape again. You cannot use this transformation if you are wearing armor."
+			]),
+		},
+    "subclassfeature2.2" : {
+			name : "Grafted Powers",
+      source: [["EldritchHunt", 140]],
+			minlevel : 2,
+      extrachoices: [
+        "bear back",
+        "deer head",
+        "goat hooves"
+      ],
+      extraTimes: 1,
+      "Bear Back": {
+        name: "Bear Back",
+        source: [["EldritchHunt", 141]],
+        description: desc([
+          "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift, as well as for grappling checks. In addition, you can add your Wisdom modifier to any Strength check that you make.",
+        ]),
+      },
+      "Deer Head": {
+        name: "Deer Head",
+        source: [["EldritchHunt", 141]],
+        description: desc([
+          "You have advantage on Perception checks that rely on sight or smell.",
+        ]),
+      },
+      "Goat Hooves": {
+        name: "Goat Hooves",
+        source: [["EldritchHunt", 141]],
+        description: desc([
+          "You have advantage on Strength and Dexterity saving throws made against effects that would knock you prone. You gain a climbing speed equal to your walking speed.",
+        ]),
+      },
+			description : desc([
+				"The multiple aspects of Nature that you forcefully implanted within you manifest themselves in other aspects of your life. At 2nd level, you gain one of the following benefits.",
+			]),
+		},
+    "subclassfeature6" : {
+			name : "Extra Attack",
+      source: [["EldritchHunt", 140]],
+			minlevel : 6,
+			description : desc([
+				"At 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. Moreover, you can cast one of your cantrips in place of one of those attacks.",
+			]),
+		},
+    "subclassfeature10" : {
+			name : "Nature’s Wrath",
+      source: [["EldritchHunt", 140]],
+			minlevel : 10,
+			description : desc([
+				"You are permanently under the effect of the barkskin spell.",
+        "In addition, when you use your Wickerbone Behemoth transformation, your size becomes Large, and whenever you damage a creature with bludgeoning, piercing or slashing damage, you gain temporary hit points equal to 1d8 + your Wisdom modifier."
+			]),
+		},
+    "subclassfeature14" : {
+			name : "Briarheart",
+      source: [["EldritchHunt", 140]],
+			minlevel : 10,
+      recovery: "long rest",
+      oncelr: true,
+      calcChanges : { //change add Wis mod to melee atk
+				atkAdd : [
+					function (fields, v) {
+						if (!v.isSpell && (v.isMeleeWeapon)) {
+							fields.Damage_Bonus = What('Wis Mod');
+						}
+					},
+					'Your melee weapon attacks deal extra damage equal to your Wisdom modifier on a hit.'
+				]
+			},
+			description : desc([
+				"Your melee weapon attacks deal extra damage equal to your Wisdom modifier on a hit.",
+        "In addition, when you drop to 0 hit points, choose two willing creatures that you can see within 30 feet of you to empower with your connection to Nature. They gain the benefits of your Wickerbone Behemoth feature for 1 minute, using your Wisdom modifier, and can choose to immediately transform (no action required), even if they are wearing armor.",
+        "Once you use this feature, you must finish a long rest before you can use it again."
+			]),
+		},
+  }
+})
