@@ -922,3 +922,106 @@ AddSubClass("fighter", "blood archer", {
     },
   },
 });
+
+AddSubClass("fighter", "living nightmare", {
+  regExpSearch:
+    /^(?=.*(war|fighter|battle|martial))(?=.*living)(?=.*nightmare).*$/i,
+  subname: "Living Nightmare",
+  fullname: "Living Nightmare",
+  source: [["EldritchHunt", 145]],
+  features: {
+    subclassfeature3: {
+      name: "Awakened Mutation",
+      source: [["EldritchHunt", 145]],
+      minlevel: 3,
+      description: desc([
+        "You forever lose proficiency with shields and heavy armor, as your ever-changing body cannot hold on to them.",
+        "Your flesh hardens and your reflexes grow, empowered by other-wordly ichor. While you are not wearing any armor, your Armor Class equals 11 + your Dexterity modifier + your Constitution modifier.",
+      ]),
+      armorOptions: [
+        {
+          regExpSearch:
+            /^(?=.*(awake|awoke|awaken))(?=.*(mutation|mutate)).*$/i,
+          name: "Awakened Mutation",
+          source: [["EldritchHunt", 142]],
+          ac: 13 + What("Con mod"),
+          selectNow: true,
+        },
+      ],
+    },
+    "subclassfeature3.1": {
+      name: "Eldritch Weaponry",
+      source: [["EldritchHunt", 145]],
+      minlevel: 3,
+      action: [["bonus action", ""]],
+      spellcastingAbility: 3, // 3 is for CON
+      description: desc([
+        "Also at 3rd level, as a bonus action, you can mutate your body, transforming it into various weapons of destruction. They count as simple melee weapons for you, and you add your Strength modifier to the attack and damage rolls when you attack with them, as normal. When you use these weapons, you drop any items you are holding with those limbs.",
+        "You choose the weapon’s form each time you make an attack roll:",
+        "* Stinger. One of your limbs grows into a razor-sharp blade. It deals 1d8 piercing damage on a hit. When you take the Attack action to attack with it on your turn, you can use a bonus action to turn another limb into a Stinger and strike with it, making a single additional attack.",
+        "* Hammer Arm. Your arms turn into a black-tinted bone club. On a hit, it deals 2d6 bludgeoning damage and you can choose to push the target 5 feet away.",
+        "* Tendinous Lash. One of your limbs replaces its bones with tough coiled ligaments, allowing it to stretch a disturbing distance without breaking. It deals 1d4 slashing damage on a hit and has a reach of 15 feet. In addition, the first time on a turn you deal damage with your lash, the target must succeed on a Strength saving throw against your Living Nightmare save DC or be knocked prone as the limb sweeps their feet.",
+        "Alternatively, you can transform your limb into a shield: \n* Sinister Aegis. Whenever you are targeted by an attack that you can see, you can use your reaction to temporarily turn one of your arms into a fleshy shield, gaining a +2 bonus to AC until the start of your next turn.",
+        "In addition, your eldritch flesh is capable of devouring some magical items to gain their properties. As part of a short or long rest, you can devour the following types of magic items, absorbing their properties:",
+        "- A rapier; its properties are added to your Stinger.",
+        "- A maul; its properties are added to your Hammer Arm.",
+        "- A whip; its properties are added to your Tendinous Lash.",
+        "- A shield; its properties are added to your Sinister Aegis.",
+        "If you absorb another magical item of the same type, the previous magic item of that type is destroyed.",
+      ]),
+    },
+    subclassfeature7: {
+      name: "Macabre Appetite",
+      source: [["EldritchHunt", 145]],
+      minlevel: 7,
+      action: [["action", ""]],
+      description: desc([
+        "When you stand within 5 feet of the corpse of a creature that has died less than 1 week ago, you can use your action to touch it and let your eldritch appendages devour it. You regain a number of hit points equal to the creature’s CR (minimum of 0, rounded down). In addition, for the next 24 hours, you can use an action to assume the creature’s appearance and voice, though none of your game statistics change. You stay in the new form until you use an action to revert to your true form or until you die.",
+        "After 24 hours, or if you consume another creature, you lose the ability to take the appearance of the consumed being.",
+      ]),
+    },
+    subclassfeature10: {
+      name: "Ascended Being",
+      source: [["EldritchHunt", 145]],
+      minlevel: 10,
+      recovery: "long rest",
+      oncelr: true,
+      usages: "Con Mod",
+      usagescalc: "event.value = Math.max(1, What('Con Mod'))",
+      action: [["bonus action", ""]],
+      description: desc([
+        "Whenever you consume a creature with your Macabre Appetite, you also inherit all their memories from the last week before their death.",
+        "In addition, as a bonus action, you can grow a pair of eldritch wings, giving yourself a flying speed of 30 feet for 1 minute. You can use this bonus action a number of times equal to your Constitution modifier (minimum of 1), and you regain all expended uses when you finish a long rest.",
+      ]),
+    },
+    subclassfeature15: {
+      name: "Nightmarish Weaponry",
+      source: [["EldritchHunt", 145]],
+      minlevel: 15,
+      recovery: "long rest",
+      oncelr: true,
+      usages: "Con Mod",
+      usagescalc: "event.value = Math.max(1, What('Con Mod'))",
+      description: desc([
+        "Once on each of your turns when you make use of your Eldritch Weaponry, you can strain your body to generate a more violent eldritch power, replacing one of your attacks:",
+        "* Stinger. You can replace one of your Stinger attacks. Instead, each creature in a 30-foot cone in front of you must succeed on a Dexterity saving throw against your Living Nightmare save DC or take damage equal to 3 hits from your Stinger.",
+        "* Hammer Arm. You can replace one of your Hammer Arm attacks. Instead, you smash the ground below you, causing quakes and sending fragments flying. Each creature within 20 feet of you must succeed on a Dexterity saving throw against your Living Nightmare save DC or take damage equal to 2 hits from your Hammer Arm and be knocked prone.",
+        "* Tendinous Lash. You can replace one of your Tendinous Lash attacks, swiping those around you instead. Each creature within 15 feet of you must succeed on a Strength saving throw against your Living Nightmare save DC or take damage equal to 1 hit from your Lash, be pulled 10 feet in a straight line towards you, and be restrained until the start of your next turn.",
+      ]),
+    },
+    subclassfeature18: {
+      name: "Eldritch Contamination",
+      source: [["EldritchHunt", 145]],
+      minlevel: 18,
+      spellcastingAbility: 3, // 3 for CON
+      spellcastingBonus: {
+        name: "Eldritch Contamination",
+        spells: ["dominate monster"],
+        selection: ["dominate monster"],
+      },
+      description: desc([
+        "You can temporarily infect creatures with the nightmare that lives within you, turning them into puppets. You can cast the dominate monster spell, requiring no components, and your spellcasting ability for the spell is Constitution. Once you use this feature twice, you can’t do so again until you finish a long rest.",
+      ]),
+    },
+  },
+});
