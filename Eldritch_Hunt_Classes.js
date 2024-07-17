@@ -588,8 +588,7 @@ AddSubClass("bard", "college of the apocalypse", {
 });
 
 AddSubClass("cleric", "guardian domain", {
-  regExpSearch:
-    /^(?=.*(cleric|priest|clergy|acolyte))(?=.*guardian).*$/i,
+  regExpSearch: /^(?=.*(cleric|priest|clergy|acolyte))(?=.*guardian).*$/i,
   subname: "Guardian Domain",
   source: [["EldritchHunt", 136]],
   spellcastingExtra: [
@@ -641,7 +640,7 @@ AddSubClass("cleric", "guardian domain", {
       minlevel: 8,
       description: desc([
         "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
-        "Your Guardian Angel also gains this feature."
+        "Your Guardian Angel also gains this feature.",
       ]),
     },
     subclassfeature17: {
@@ -650,7 +649,7 @@ AddSubClass("cleric", "guardian domain", {
       minlevel: 8,
       description: desc([
         "When your Guardian Angel casts warding bond, it can target a number of allied creatures (including you) equal to your Wisdom modifier (minimum 1). The spell functions as if the angel had created a warding bond with each individual creature. In addition, upon being summoned, the Guardian Angel gains temporary hit points equal to 5 times the number of creatures targeted by the spell.",
-        "Once you use this feature, you can’t use it again until you finish a long rest."
+        "Once you use this feature, you can’t use it again until you finish a long rest.",
       ]),
       recovery: "long rest",
       oncelr: true,
@@ -659,48 +658,54 @@ AddSubClass("cleric", "guardian domain", {
 });
 
 AddSubClass("druid", "circle of symbiosis", {
-	regExpSearch : /^(?=.*(druid|shaman))((?=.*\bsymbiosis\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
+  regExpSearch:
+    /^(?=.*(druid|shaman))((?=.*\bsymbiosis\b)|((?=.*\bmany\b)(?=.*\bforms?\b))).*$/i,
   subname: "Circle of Symbiosis",
   source: [["EldritchHunt", 137]],
   features: {
-    "subclassfeature2" : {
-			name : "Spells",
+    subclassfeature2: {
+      name: "Spells",
       source: [["EldritchHunt", 137]],
-			minlevel : 2,
-			description : desc([
-				"At 2nd level, you learn the shillelagh cantrip. This cantrip doesn’t count against the number of druid cantrips you know.",
-				"At 3rd, 5th, 7th, and 9th level you gain access to the spells listed for that level in the Circle of Symbiosis Spells table. Once you gain access to one of these spells, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you gain access to a spell that doesn't appear on the druid spell list, the spell is nonetheless a druid spell for you."
-			]),
-			spellcastingBonus : {
-				name : "Circle Spells",
-				spells : ["shillelagh"],
-				selection : ["shillelagh"]
-			},
+      minlevel: 2,
+      description: desc([
+        "At 2nd level, you learn the shillelagh cantrip. This cantrip doesn’t count against the number of druid cantrips you know.",
+        "At 3rd, 5th, 7th, and 9th level you gain access to the spells listed for that level in the Circle of Symbiosis Spells table. Once you gain access to one of these spells, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you gain access to a spell that doesn't appear on the druid spell list, the spell is nonetheless a druid spell for you.",
+      ]),
+      spellcastingBonus: {
+        name: "Circle Spells",
+        spells: ["shillelagh"],
+        selection: ["shillelagh"],
+      },
       //TODO: need to add custom Eldritch Hunt spells
-			spellcastingExtra : ["barkskin", "skeletal tail", "osseous cage", "plant growth", "maiden of bones", "stoneskin", "forest of dread", "tree stride"]
-		},
-    "subclassfeature2.1" : {
-			name : "Wickerbone Behemoth",
+      spellcastingExtra: [
+        "barkskin",
+        "skeletal tail",
+        "osseous cage",
+        "plant growth",
+        "maiden of bones",
+        "stoneskin",
+        "forest of dread",
+        "tree stride",
+      ],
+    },
+    "subclassfeature2.1": {
+      name: "Wickerbone Behemoth",
       source: [["EldritchHunt", 140]],
-			minlevel : 2,
-			action : ["action", ""],
-			description : desc([
-				"As an action, you may expend a use of your Wild Shape to awaken Nature’s anger, turning into a behemoth, rather than transforming into a beast form. A deer skull, wooden skin, goat hooves, or other such natural gifts overtake your body. While this feature is active, you gain the following benefits:",
-				"● Your arms count as clubs, each under the effect of the shillelagh spell.",
+      minlevel: 2,
+      action: ["action", ""],
+      description: desc([
+        "As an action, you may expend a use of your Wild Shape to awaken Nature’s anger, turning into a behemoth, rather than transforming into a beast form. A deer skull, wooden skin, goat hooves, or other such natural gifts overtake your body. While this feature is active, you gain the following benefits:",
+        "● Your arms count as clubs, each under the effect of the shillelagh spell.",
         "● You are under the effect of the barkskin spell, although you do not need to concentrate on it. In addition, whenever a creature damages you with an attack, your skin splinters and all creatures of your choice within 5 feet of you take 1d4 magical piercing damage. This damage increases to 2d4 at 10th level.",
         "● The stress of battle stimulates your organism to fight and survive. At the start of each of your turns, you regain hit points equal to half the damage taken since the start of your previous turn (rounded down, minimum of 0), up to a maximum of three times your Wisdom modifier. This regeneration doesn’t work if you are unconscious.",
-        "These benefits last for 10 minutes, or until you use your Wild Shape again. You cannot use this transformation if you are wearing armor."
-			]),
-		},
-    "subclassfeature2.2" : {
-			name : "Grafted Powers",
+        "These benefits last for 10 minutes, or until you use your Wild Shape again. You cannot use this transformation if you are wearing armor.",
+      ]),
+    },
+    "subclassfeature2.2": {
+      name: "Grafted Powers",
       source: [["EldritchHunt", 140]],
-			minlevel : 2,
-      extrachoices: [
-        "bear back",
-        "deer head",
-        "goat hooves"
-      ],
+      minlevel: 2,
+      extrachoices: ["bear back", "deer head", "goat hooves"],
       extraTimes: 1,
       "Bear Back": {
         name: "Bear Back",
@@ -723,48 +728,197 @@ AddSubClass("druid", "circle of symbiosis", {
           "You have advantage on Strength and Dexterity saving throws made against effects that would knock you prone. You gain a climbing speed equal to your walking speed.",
         ]),
       },
-			description : desc([
-				"The multiple aspects of Nature that you forcefully implanted within you manifest themselves in other aspects of your life. At 2nd level, you gain one of the following benefits.",
-			]),
-		},
-    "subclassfeature6" : {
-			name : "Extra Attack",
+      description: desc([
+        "The multiple aspects of Nature that you forcefully implanted within you manifest themselves in other aspects of your life. At 2nd level, you gain one of the following benefits.",
+      ]),
+    },
+    subclassfeature6: {
+      name: "Extra Attack",
       source: [["EldritchHunt", 140]],
-			minlevel : 6,
-			description : desc([
-				"At 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. Moreover, you can cast one of your cantrips in place of one of those attacks.",
-			]),
-		},
-    "subclassfeature10" : {
-			name : "Nature’s Wrath",
+      minlevel: 6,
+      description: desc([
+        "At 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. Moreover, you can cast one of your cantrips in place of one of those attacks.",
+      ]),
+    },
+    subclassfeature10: {
+      name: "Nature’s Wrath",
       source: [["EldritchHunt", 140]],
-			minlevel : 10,
-			description : desc([
-				"You are permanently under the effect of the barkskin spell.",
-        "In addition, when you use your Wickerbone Behemoth transformation, your size becomes Large, and whenever you damage a creature with bludgeoning, piercing or slashing damage, you gain temporary hit points equal to 1d8 + your Wisdom modifier."
-			]),
-		},
-    "subclassfeature14" : {
-			name : "Briarheart",
+      minlevel: 10,
+      description: desc([
+        "You are permanently under the effect of the barkskin spell.",
+        "In addition, when you use your Wickerbone Behemoth transformation, your size becomes Large, and whenever you damage a creature with bludgeoning, piercing or slashing damage, you gain temporary hit points equal to 1d8 + your Wisdom modifier.",
+      ]),
+    },
+    subclassfeature14: {
+      name: "Briarheart",
       source: [["EldritchHunt", 140]],
-			minlevel : 10,
+      minlevel: 10,
       recovery: "long rest",
       oncelr: true,
-      calcChanges : { //change add Wis mod to melee atk
-				atkAdd : [
-					function (fields, v) {
-						if (!v.isSpell && (v.isMeleeWeapon)) {
-							fields.Damage_Bonus = What('Wis Mod');
-						}
-					},
-					'Your melee weapon attacks deal extra damage equal to your Wisdom modifier on a hit.'
-				]
-			},
-			description : desc([
-				"Your melee weapon attacks deal extra damage equal to your Wisdom modifier on a hit.",
+      calcChanges: {
+        //change add Wis mod to melee atk
+        atkAdd: [
+          function (fields, v) {
+            if (!v.isSpell && v.isMeleeWeapon) {
+              fields.Damage_Bonus = What("Wis Mod");
+            }
+          },
+          "Your melee weapon attacks deal extra damage equal to your Wisdom modifier on a hit.",
+        ],
+      },
+      description: desc([
+        "Your melee weapon attacks deal extra damage equal to your Wisdom modifier on a hit.",
         "In addition, when you drop to 0 hit points, choose two willing creatures that you can see within 30 feet of you to empower with your connection to Nature. They gain the benefits of your Wickerbone Behemoth feature for 1 minute, using your Wisdom modifier, and can choose to immediately transform (no action required), even if they are wearing armor.",
-        "Once you use this feature, you must finish a long rest before you can use it again."
-			]),
-		},
-  }
-})
+        "Once you use this feature, you must finish a long rest before you can use it again.",
+      ]),
+    },
+  },
+});
+
+AddSubClass("fighter", "blood archer", {
+  regExpSearch:
+    /^(?=.*(war|fighter|battle|martial))(?=.*blood)(?=.*archer).*$/i,
+  subname: "Blood Archer",
+  fullname: "Blood Archer",
+  source: [["EldritchHunt", 142]],
+  features: {
+    subclassfeature3: {
+      name: "Blood Shot",
+      source: [["EldritchHunt", 142]],
+      minlevel: 3,
+      description: desc([
+        "You learn three Blood Shot options of your choice",
+        "Once per turn when you fire an arrow from a shortbow or longbow as part of the Attack action, you can apply one of your Blood Shot options to that arrow",
+      ]),
+      recovery: "short rest",
+      spellcastingAbility: 3, // 3 is for CON, Bloodshot DC
+      extrachoices: [
+        "bewitching arrow",
+        "bloodboil arrow",
+        "bloodshard arrow",
+        "constraining arrow",
+        "exiling arrow",
+        "hunting arrow",
+        "shadowblood arrow",
+        "thunderblood arrow",
+        "withering arrow",
+      ],
+      usages: "Con Mod",
+      usagescalc: "event.value = Math.max(1, 1 + What('Con Mod'))",
+      extraTimes: 3,
+      "Bewitching Arrow": {
+        name: "Bewitching Arrow",
+        source: [["EldritchHunt", 143]],
+        description: desc([
+          "The creature hit by the arrow takes an extra 2d6 psychic damage and must make a Wisdom saving throw. If it fails the save, you can choose one of the target's allies within 30 feet of it; the target now considers this ally as an enemy until the start of your next turn.",
+          "The psychic damage increases to 4d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Bloodboil Arrow": {
+        name: "Bloodboil Arrow",
+        source: [["EldritchHunt", 143]],
+        description: desc([
+          "The arrow detonates in a cloud of ignited blood after your attack. Immediately after the arrow hits the creature, the target and all other creatures within 10 feet of it take 2d6 fire damage as their bodies start burning. This fire damage ignores resistance.",
+          "The fire damage increases to 4d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Bloodshard Arrow": {
+        name: "Bloodshard Arrow",
+        source: [["EldritchHunt", 143]],
+        description: desc([
+          "You fire forward a 1-foot- wide, 30-foot-long line bloodshard before disappearing. The arrow passes harmlessly through objects, ignoring cover. Each creature in that line must make a Dexterity saving throw, taking damage as if it were hit by the arrow plus an extra 1d6 piercing damage on a failed save, or half as much damage on a successful one.",
+          "This extra piercing damage increases to 2d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Constraining Arrow": {
+        name: "Constraining Arrow",
+        source: [["EldritchHunt", 143]],
+        description: desc([
+          "The creature hit by the arrow takes an extra 2d6 acid damage, its speed is reduced by 10 feet, and it takes 2d6 acid damage the first time on each turn it moves 1 foot or more without teleporting. A creature can use its action to make an Athletics check against your Blood Shot save DC, removing the tendrils from itself or another creature within its reach on a success. Otherwise, the tendrils last for 1 minute or until you use this option again.",
+          "Both acid damages increase to 4d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Exiling Arrow": {
+        name: "Exiling Arrow",
+        source: [["EldritchHunt", 143]],
+        description: desc([
+          "The creature hit by the arrow must also succeed on a Charisma saving throw or be banished. While banished in this way, its speed is 0 and it is incapacitated. At the end of its next turn, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.",
+          "After you reach 18th level in this class, the target also takes 2d6 radiant damage when the arrow hits it.",
+        ]),
+      },
+      "Hunting Arrow": {
+        name: "Hunting Arrow",
+        source: [["EldritchHunt", 144]],
+        description: desc([
+          "Instead of an attack roll, choose one creature you have seen in the past minute. The arrow flies toward that creature, moving around corners if necessary, and ignoring three- quarters cover and half cover. If the target is within the weapon’s range and there is a path large enough for the arrow to travel to the target, the target must make a Dexterity saving throw. On a failed save, it takes damage as if it were hit by the arrow plus an extra 1d6 piercing damage, and you learn the target’s current location.",
+          "The extra piercing damage increases to 2d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Shadowblood Arrow": {
+        name: "Shadowblood Arrow",
+        source: [["EldritchHunt", 144]],
+        description: desc([
+          "The creature hit by the arrow takes an extra 2d6 necrotic damage and its blood forms a dark red mist that rises in a 10- foot radius around the target. This mist is magical darkness and spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it. It lasts until the start of your next turn.",
+          "The necrotic damage increases to 4d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Thunderblood Arrow": {
+        name: "Thunderblood Arrow",
+        source: [["EldritchHunt", 144]],
+        description: desc([
+          "The arrow detonates immediately after it hits your target; the creature takes an extra 2d6 thunder damage and is pushed back 15 feet. In addition, it must succeed on a Strength saving throw against your Blood Shot save DC or be knocked prone.",
+          "The thunder damage increases to 4d6 when you reach 18th level in this class.",
+        ]),
+      },
+      "Withering Arrow": {
+        name: "Withering Arrow",
+        source: [["EldritchHunt", 143]],
+        description: desc([
+          "The creature hit by the arrow takes an extra 2d6 necrotic damage. The target must also succeed on a Constitution saving throw against your Blood Shot save DC, or the damage dealt by its weapon attacks is halved until the start of your next turn.",
+          "The necrotic damage increases to 4d6 when you reach 18th level in this class.",
+        ]),
+      },
+    },
+    "subclassfeature3.1": {
+      name: "Blood Archer Anatomy",
+      source: [["EldritchHunt", 142]],
+      minlevel: 3,
+      dmgres: "Poison",
+      savetxt: {
+        immune: ["disease"],
+        adv_vs: ["poison"],
+      },
+      description: desc([
+        "At 3rd level, your body adapts to the tarblood within. You are immune to disease, have resistance to poison damage, and have advantage on saving throws against poison.",
+        "In addition, once you've fought a creature, you can relentlessly track it, sensing the blood of your prey. You have advantage on any Perception or Survival check you make to find a creature you've dealt damage to and has blood.",
+      ]),
+    },
+    subclassfeature7: {
+      name: "Blood Arrows",
+      source: [["EldritchHunt", 142]],
+      minlevel: 7,
+      description: desc([
+        "At 7th level, you gain the ability to create arrows with your blood. When you make a ranged attack using a shortbow or longbow, you can create a blood arrow in place of standard ammunition. Blood arrows are considered magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.",
+        "In addition, when you use your Blood Shot feature, you can add your Constitution modifier to the damage roll of the effect.",
+      ]),
+    },
+    subclassfeature10: {
+      name: "Blood Recall",
+      source: [["EldritchHunt", 143]],
+      minlevel: 10,
+      action: [["bonus action", ""]],
+      description: desc([
+        "At 10th level, you learn how to recall your arrows. When you make an attack roll with a blood arrow and miss, you can use a bonus action to reroll the attack roll against the original target, as the arrow flies back towards you.",
+      ]),
+    },
+    subclassfeature15: {
+      name: "Blood of Creation",
+      source: [["EldritchHunt", 143]],
+      minlevel: 15,
+      action: [["action", ""]],
+      description: desc([
+        "Starting at 15th level, as an action, you can choose to sacrifice your lifeforce to reinvigorate control over your blood magic. You take necrotic damage equal to 1d10 + your Constitution modifier, which you cannot reduce in any way, and regain 1d4 uses of your Blood Shot.",
+      ]),
+    },
+  },
+});
