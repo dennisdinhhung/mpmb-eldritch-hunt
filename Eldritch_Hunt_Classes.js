@@ -357,7 +357,7 @@ AddSubClass("barbarian", "path of the lightning vessel", {
       name: "Overwhelming Power",
       source: [["EldritchHunt", 128]],
       minLevel: 3,
-      dmgres: ["lightning; if existed, reduce by another 1d6"],
+      dmgres: ["Lightning", "Lightning; if existed, reduce by another 1d6"],
       description: desc([
         "While raging, you can unleash the lightning within. For the duration of your rage, you can use your bonus action to unleash various powers.",
         "• Electrified Chains. You can use your bonus action to create chains of lightning that wrap around your weapon. The next time you hit a creature this turn, it takes additional lightning damage equal to twice your Constitution modifier and becomes ensnared by the chains, which anchor to the floor, until the start of your next turn. Each time it attempts to move more than 10 feet while ensnared, it must make an Athletics check contested by your Athletics check, freeing itself on a success. On a failure, it takes the lightning damage again and its speed is reduced to 0 until the start of your next turn.",
@@ -1025,3 +1025,69 @@ AddSubClass("fighter", "living nightmare", {
     },
   },
 });
+
+AddSubClass("monk", "way of the fire dancer", {
+  regExpSearch : /^(?=.*\bfire)(?=.*\b(dancer))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+	subname : "Way of the Fire Dancer",
+	source : [["EldritchHunt", 147]],
+  features: {
+    "subclassfeature3": {
+      name: "Blazing Performer",
+      source: [["EldritchHunt", 147]],
+      minLevel: 3,
+      skillstxt: "Choose one of Performance or Acrobatics, your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
+      dmgres: ["Fire", "Fire; if existed, reduct another 1d6"],
+      description: desc([
+        "You gain proficiency in the Performance or Acrobatics skill (your choice), and your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
+        "In addition, you gain resistance to fire damage. If you already have this resistance, instead, if you take fire damage, you can reduce that damage by 1d6 (after the resistance applies)."
+      ])
+    },
+    "subclassfeature3.1": {
+      name: "Dance of Fire",
+      source: [["EldritchHunt", 147]],
+      minLevel: 3,
+      action: [["reaction", ""]],
+      description: desc([
+        "When you spend a ki point during your turn, your monk weapons and unarmed strikes catch fire until the start of your next turn. While on fire, they deal extra fire damage equal to your Wisdom modifier, and you gain a bonus to your AC equal to half your Wisdom modifier for the duration.",
+        "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it."
+      ])
+    },
+    "subclassfeature6": {
+      name: "Scorching Vortex",
+      source: [["EldritchHunt", 147]],
+      minLevel: 6,
+      usages: "Wis Mod",
+      usagescalc: "event.value = Math.max(1, 1 + What('Wis Mod'))",
+      description: desc([
+        "When you use Step of the Wind, if you move through each space adjacent to a creature on your turn, you create a vortex of fire around them. The target must make a Dexterity saving throw against your ki save DC, taking 2d6 fire damage and becoming trapped in a vortex of flames that appears in its space on a failed save. On a successful save, the target takes half as much damage and the vortex fails to appear. The vortex is opaque and obstructs line of sight. If the target attempts to move out of the flames, it must first succeed on a Wisdom saving throw against your ki save DC. On a failure, it takes 1d6 fire damage and is charmed by the flames, reducing its speed to 0 until the start of its next turn, at which point the vortex and its effects end. On a success, it moves through the vortex, ending the effect. These flames do not damage other creatures.",
+        "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it."
+      ])
+    },
+    "subclassfeature11": {
+      name: "Flames of Redemption",
+      source: [["EldritchHunt", 147]],
+      minLevel: 11,
+      description: desc([
+        "At 11th level, any fire damage that you deal ignores fire resistance. In addition, the clarity of your mind allows you to generate flames that many would call divine; you can replace any fire damage that you deal with radiant damage.",
+      ])
+    },
+    "subclassfeature11.1": {
+      name: "Purifying Flames",
+      source: [["EldritchHunt", 147]],
+      minLevel: 11,
+      action: [["action", ""]],
+      description: desc([
+        "At 11th level, your flames burn away all impurities. As an action, you can spend 2 ki points to touch a creature and infuse them with your flames. The target can end one poison, charm, or short-term madness afflicting it.",
+      ])
+    },
+    "subclassfeature17": {
+      name: "Purifying Flames",
+      source: [["EldritchHunt", 147]],
+      minLevel: 17,
+      description: desc([
+        "When you deal fire damage with a monk weapon, if the target is a creature or a flammable object, it ignites. Until the target or a creature within 5 feet of it takes an action to douse the flames, the target takes fire damage equal to your Wisdom modifier at the start of each of its turns.",
+        "In addition, while under the effects of Dance of Fire, your body merges with the flames. For the duration, you become immune to fire damage and have resistance to bludgeoning, piercing, and slashing damage."
+      ])
+    },
+  }
+})
