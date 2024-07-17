@@ -1091,3 +1091,56 @@ AddSubClass("monk", "way of the fire dancer", {
     },
   }
 })
+
+AddSubClass("paladin", "oath of the eldritch hunt", {
+  regExpSearch : /^(?=.*(eldritch))(?=.*(hunt))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+	subname : "Oath of the Eldritch Hunt",
+	source : [["EldritchHunt", 149]],
+  features: {
+    "subclassfeature3" : {
+			name : "Channel Divinity: Emissary of Peace",
+			source : [["EldritchHunt", 149]],
+			minlevel : 3,
+      action: [["bonus action", ""]],
+			description : desc([
+        "Hunt the Prey. As a bonus action, you can call upon the sanctified hunt. You designate a creature within 60 feet of you as your prey, marking the target for 1 minute. As part of casting this channel divinity, and as a bonus action on subsequent turns, you can magically teleport up to 30 feet to an unoccupied space you can see within 5 feet of the marked target. To teleport in this way, you must be able to see the marked target.",
+        "Stolen Eldritch Gift. As a bonus action, you use your channel divinity to enhance your body beyond your mortal limits. For 10 minutes, you can add your Charisma modifier to any Athletics, Acrobatics, and Perception checks that you make."
+      ]),
+			action : ["bonus action", ""],
+			spellcastingExtra : ["faerie fire", "spectral slash", "moonbeam", "hold person", "displacing maw", "spectral fury", "black tentacles", "maiden of bones", "contact other plane", "hold monster"]
+		},
+    "subclassfeature7": {
+      name: "Sharpened Senses",
+      source: [["EldritchHunt", 150]],
+      minLevel: 7,
+      description: desc([
+        "You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, within that range, no creature can hide from you.",
+        "At 18th level, this range increases to 30 feet."
+      ])
+    },
+    "subclassfeature15": {
+      name: "Sharpened Senses",
+      source: [["EldritchHunt", 150]],
+      minLevel: 15,
+      description: desc([
+        "When you deal damage to a creature, you learn any damage resistances, immunities, or vulnerabilities that it has.",
+        "In addition, whenever you use your Hunt the Prey channel divinity, you can make a single weapon attack against the marked target when you reappear, as part of the same bonus action."
+      ])
+    },
+    "subclassfeature20": {
+      name: "Perfect Hunter",
+      source: [["EldritchHunt", 150]],
+      minLevel: 20,
+			action : ["bonus action", ""],
+      recovery: "long rest",
+      oncelr: true,
+      usages: 1,
+      description: desc([
+        "As a bonus action, you activate the power of the true hunter. For the next minute, you gain the following benefits:",
+        "● You become invisible.",
+        "● You cannot be grappled, restrained, or paralyzed.",
+        "● Your weapon attacks deal an extra 1d8 necrotic damage, which bypasses resistance."
+      ])
+    },
+  }
+})
