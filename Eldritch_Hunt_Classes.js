@@ -409,6 +409,35 @@ AddSubClass("bard", "college of the apocalypse", {
       name: "Endless Symphony",
       source: [["EldritchHunt", 133]],
       minlevel: 3,
+      additional: [
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d6",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d8",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+        "d10",
+      ],
+      usages: "Charisma modifier per ",
+      usagescalc:
+        "event.value = Math.max(1, What('Cha Mod') + (classes.known.bard.level < 3 ? 0 : (classes.known.bard.level < 6 ? 1 : (classes.known.bard.level < 14 ? 2 : 3))));",
+      recovery: levels.map(function (n) {
+        return n < 5 ? "long rest" : "short rest"; //short rest at level 5 due to Font of Inspiration
+      }),
+      action: ["bonus action", ""],
       description:
         "At 3rd level, you gain another use of your Bardic Inspiration feature (and one each at 6th and 14th).\nIn exchange, your Bardic Inspiration die doesn’t change at 5th level, remaining a d6; it becomes a d8 at 10th level, and a d10 at 15th level.",
     },
@@ -651,6 +680,7 @@ AddSubClass("cleric", "guardian domain", {
         "When your Guardian Angel casts warding bond, it can target a number of allied creatures (including you) equal to your Wisdom modifier (minimum 1). The spell functions as if the angel had created a warding bond with each individual creature. In addition, upon being summoned, the Guardian Angel gains temporary hit points equal to 5 times the number of creatures targeted by the spell.",
         "Once you use this feature, you can’t use it again until you finish a long rest.",
       ]),
+      usages: 1,
       recovery: "long rest",
       oncelr: true,
     },
@@ -705,23 +735,24 @@ AddSubClass("druid", "circle of symbiosis", {
       name: "Grafted Powers",
       source: [["EldritchHunt", 140]],
       minlevel: 2,
-      extrachoices: ["bear back", "deer head", "goat hooves"],
-      extraTimes: 1,
-      "Bear Back": {
+      extraname: "Grafted Powers",
+      extrachoices: ["Bear Back", "Deer Head", "Goat Hooves"],
+      extraTimes: [1],
+      "bear back": {
         name: "Bear Back",
         source: [["EldritchHunt", 141]],
         description: desc([
           "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift, as well as for grappling checks. In addition, you can add your Wisdom modifier to any Strength check that you make.",
         ]),
       },
-      "Deer Head": {
+      "deer head": {
         name: "Deer Head",
         source: [["EldritchHunt", 141]],
         description: desc([
           "You have advantage on Perception checks that rely on sight or smell.",
         ]),
       },
-      "Goat Hooves": {
+      "goat hooves": {
         name: "Goat Hooves",
         source: [["EldritchHunt", 141]],
         description: desc([
@@ -753,10 +784,11 @@ AddSubClass("druid", "circle of symbiosis", {
       name: "Briarheart",
       source: [["EldritchHunt", 140]],
       minlevel: 10,
+      usages: 1,
       recovery: "long rest",
       oncelr: true,
       calcChanges: {
-        //change add Wis mod to melee atk
+        //changes: add Wis mod to melee atk
         atkAdd: [
           function (fields, v) {
             if (!v.isSpell && v.isMeleeWeapon) {
@@ -776,8 +808,7 @@ AddSubClass("druid", "circle of symbiosis", {
 });
 
 AddSubClass("fighter", "blood archer", {
-  regExpSearch:
-    /^(?=.*(war|fighter|battle|martial))(?=.*blood)(?=.*archer).*$/i,
+  regExpSearch: /^(?=.*blood)(?=.*archer).*$/i,
   subname: "Blood Archer",
   fullname: "Blood Archer",
   source: [["EldritchHunt", 142]],
@@ -790,23 +821,25 @@ AddSubClass("fighter", "blood archer", {
         "You learn three Blood Shot options of your choice",
         "Once per turn when you fire an arrow from a shortbow or longbow as part of the Attack action, you can apply one of your Blood Shot options to that arrow",
       ]),
-      recovery: "short rest",
       spellcastingAbility: 3, // 3 is for CON, Bloodshot DC
-      extrachoices: [
-        "bewitching arrow",
-        "bloodboil arrow",
-        "bloodshard arrow",
-        "constraining arrow",
-        "exiling arrow",
-        "hunting arrow",
-        "shadowblood arrow",
-        "thunderblood arrow",
-        "withering arrow",
-      ],
+      recovery: "short rest",
+      oncesr: true,
       usages: "Con Mod",
       usagescalc: "event.value = Math.max(1, 1 + What('Con Mod'))",
-      extraTimes: 3,
-      "Bewitching Arrow": {
+      extraname: "Blood Shot",
+      extrachoices: [
+        "Bewitching Arrow",
+        "Bloodboil Arrow",
+        "Bloodshard Arrow",
+        "Constraining Arrow",
+        "Exiling Arrow",
+        "Hunting Arrow",
+        "Shadowblood Arrow",
+        "Thunderblood Arrow",
+        "Withering Arrow",
+      ],
+      extraTimes: [3],
+      "bewitching arrow": {
         name: "Bewitching Arrow",
         source: [["EldritchHunt", 143]],
         description: desc([
@@ -814,7 +847,7 @@ AddSubClass("fighter", "blood archer", {
           "The psychic damage increases to 4d6 when you reach 18th level in this class.",
         ]),
       },
-      "Bloodboil Arrow": {
+      "bloodboil arrow": {
         name: "Bloodboil Arrow",
         source: [["EldritchHunt", 143]],
         description: desc([
@@ -822,7 +855,7 @@ AddSubClass("fighter", "blood archer", {
           "The fire damage increases to 4d6 when you reach 18th level in this class.",
         ]),
       },
-      "Bloodshard Arrow": {
+      "bloodshard arrow": {
         name: "Bloodshard Arrow",
         source: [["EldritchHunt", 143]],
         description: desc([
@@ -830,7 +863,7 @@ AddSubClass("fighter", "blood archer", {
           "This extra piercing damage increases to 2d6 when you reach 18th level in this class.",
         ]),
       },
-      "Constraining Arrow": {
+      "constraining arrow": {
         name: "Constraining Arrow",
         source: [["EldritchHunt", 143]],
         description: desc([
@@ -838,7 +871,7 @@ AddSubClass("fighter", "blood archer", {
           "Both acid damages increase to 4d6 when you reach 18th level in this class.",
         ]),
       },
-      "Exiling Arrow": {
+      "exiling arrow": {
         name: "Exiling Arrow",
         source: [["EldritchHunt", 143]],
         description: desc([
@@ -846,7 +879,7 @@ AddSubClass("fighter", "blood archer", {
           "After you reach 18th level in this class, the target also takes 2d6 radiant damage when the arrow hits it.",
         ]),
       },
-      "Hunting Arrow": {
+      "hunting arrow": {
         name: "Hunting Arrow",
         source: [["EldritchHunt", 144]],
         description: desc([
@@ -854,7 +887,7 @@ AddSubClass("fighter", "blood archer", {
           "The extra piercing damage increases to 2d6 when you reach 18th level in this class.",
         ]),
       },
-      "Shadowblood Arrow": {
+      "shadowblood arrow": {
         name: "Shadowblood Arrow",
         source: [["EldritchHunt", 144]],
         description: desc([
@@ -862,7 +895,7 @@ AddSubClass("fighter", "blood archer", {
           "The necrotic damage increases to 4d6 when you reach 18th level in this class.",
         ]),
       },
-      "Thunderblood Arrow": {
+      "thunderblood arrow": {
         name: "Thunderblood Arrow",
         source: [["EldritchHunt", 144]],
         description: desc([
@@ -870,7 +903,7 @@ AddSubClass("fighter", "blood archer", {
           "The thunder damage increases to 4d6 when you reach 18th level in this class.",
         ]),
       },
-      "Withering Arrow": {
+      "withering arrow": {
         name: "Withering Arrow",
         source: [["EldritchHunt", 143]],
         description: desc([
@@ -924,8 +957,7 @@ AddSubClass("fighter", "blood archer", {
 });
 
 AddSubClass("fighter", "living nightmare", {
-  regExpSearch:
-    /^(?=.*(war|fighter|battle|martial))(?=.*living)(?=.*nightmare).*$/i,
+  regExpSearch: /^(?=.*living)(?=.*nightmare).*$/i,
   subname: "Living Nightmare",
   fullname: "Living Nightmare",
   source: [["EldritchHunt", 145]],
@@ -986,7 +1018,7 @@ AddSubClass("fighter", "living nightmare", {
       minlevel: 10,
       recovery: "long rest",
       oncelr: true,
-      usages: "Con Mod",
+      usages: "Con Mod ",
       usagescalc: "event.value = Math.max(1, What('Con Mod'))",
       action: [["bonus action", ""]],
       description: desc([
@@ -1019,6 +1051,9 @@ AddSubClass("fighter", "living nightmare", {
         spells: ["dominate monster"],
         selection: ["dominate monster"],
       },
+      usages: 2,
+      recovery: "long rest",
+      oncelr: true,
       description: desc([
         "You can temporarily infect creatures with the nightmare that lives within you, turning them into puppets. You can cast the dominate monster spell, requiring no components, and your spellcasting ability for the spell is Constitution. Once you use this feature twice, you can’t do so again until you finish a long rest.",
       ]),
@@ -1027,20 +1062,22 @@ AddSubClass("fighter", "living nightmare", {
 });
 
 AddSubClass("monk", "way of the fire dancer", {
-  regExpSearch : /^(?=.*\bfire)(?=.*\b(dancer))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
-	subname : "Way of the Fire Dancer",
-	source : [["EldritchHunt", 147]],
+  regExpSearch:
+    /^(?=.*\bfire)(?=.*\b(dancer))((?=.*(monk|monastic))|(((?=.*martial)(?=.*(artist|arts)))|((?=.*spiritual)(?=.*warrior)))).*$/i,
+  subname: "Way of the Fire Dancer",
+  source: [["EldritchHunt", 147]],
   features: {
-    "subclassfeature3": {
+    subclassfeature3: {
       name: "Blazing Performer",
       source: [["EldritchHunt", 147]],
       minLevel: 3,
-      skillstxt: "Choose one of Performance or Acrobatics, your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
+      skillstxt:
+        "Choose one of Performance or Acrobatics, your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
       dmgres: ["Fire", "Fire; if existed, reduct another 1d6"],
       description: desc([
         "You gain proficiency in the Performance or Acrobatics skill (your choice), and your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
-        "In addition, you gain resistance to fire damage. If you already have this resistance, instead, if you take fire damage, you can reduce that damage by 1d6 (after the resistance applies)."
-      ])
+        "In addition, you gain resistance to fire damage. If you already have this resistance, instead, if you take fire damage, you can reduce that damage by 1d6 (after the resistance applies).",
+      ]),
     },
     "subclassfeature3.1": {
       name: "Dance of Fire",
@@ -1049,27 +1086,28 @@ AddSubClass("monk", "way of the fire dancer", {
       action: [["reaction", ""]],
       description: desc([
         "When you spend a ki point during your turn, your monk weapons and unarmed strikes catch fire until the start of your next turn. While on fire, they deal extra fire damage equal to your Wisdom modifier, and you gain a bonus to your AC equal to half your Wisdom modifier for the duration.",
-        "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it."
-      ])
+        "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it.",
+      ]),
     },
-    "subclassfeature6": {
+    subclassfeature6: {
       name: "Scorching Vortex",
       source: [["EldritchHunt", 147]],
       minLevel: 6,
       usages: "Wis Mod",
       usagescalc: "event.value = Math.max(1, 1 + What('Wis Mod'))",
+      action: [["action", ""], ["reaction", " (enemy misses)"]],
       description: desc([
         "When you use Step of the Wind, if you move through each space adjacent to a creature on your turn, you create a vortex of fire around them. The target must make a Dexterity saving throw against your ki save DC, taking 2d6 fire damage and becoming trapped in a vortex of flames that appears in its space on a failed save. On a successful save, the target takes half as much damage and the vortex fails to appear. The vortex is opaque and obstructs line of sight. If the target attempts to move out of the flames, it must first succeed on a Wisdom saving throw against your ki save DC. On a failure, it takes 1d6 fire damage and is charmed by the flames, reducing its speed to 0 until the start of its next turn, at which point the vortex and its effects end. On a success, it moves through the vortex, ending the effect. These flames do not damage other creatures.",
-        "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it."
-      ])
+        "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it.",
+      ]),
     },
-    "subclassfeature11": {
+    subclassfeature11: {
       name: "Flames of Redemption",
       source: [["EldritchHunt", 147]],
       minLevel: 11,
       description: desc([
         "At 11th level, any fire damage that you deal ignores fire resistance. In addition, the clarity of your mind allows you to generate flames that many would call divine; you can replace any fire damage that you deal with radiant damage.",
-      ])
+      ]),
     },
     "subclassfeature11.1": {
       name: "Purifying Flames",
@@ -1078,60 +1116,81 @@ AddSubClass("monk", "way of the fire dancer", {
       action: [["action", ""]],
       description: desc([
         "At 11th level, your flames burn away all impurities. As an action, you can spend 2 ki points to touch a creature and infuse them with your flames. The target can end one poison, charm, or short-term madness afflicting it.",
-      ])
+      ]),
     },
-    "subclassfeature17": {
-      name: "Purifying Flames",
+    subclassfeature17: {
+      name: "One With The Fire",
       source: [["EldritchHunt", 147]],
       minLevel: 17,
       description: desc([
         "When you deal fire damage with a monk weapon, if the target is a creature or a flammable object, it ignites. Until the target or a creature within 5 feet of it takes an action to douse the flames, the target takes fire damage equal to your Wisdom modifier at the start of each of its turns.",
-        "In addition, while under the effects of Dance of Fire, your body merges with the flames. For the duration, you become immune to fire damage and have resistance to bludgeoning, piercing, and slashing damage."
-      ])
+        "In addition, while under the effects of Dance of Fire, your body merges with the flames. For the duration, you become immune to fire damage and have resistance to bludgeoning, piercing, and slashing damage.",
+      ]),
     },
-  }
-})
+  },
+});
 
 AddSubClass("paladin", "oath of the eldritch hunt", {
-  regExpSearch : /^(?=.*(eldritch))(?=.*(hunt))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
-	subname : "Oath of the Eldritch Hunt",
-	source : [["EldritchHunt", 149]],
+  regExpSearch:
+    /^(?=.*(eldritch))(?=.*(hunt))(((?=.*paladin)|((?=.*(exalted|sacred|holy|divine))(?=.*(knight|fighter|warrior|warlord|trooper))))).*$/i,
+  subname: "Oath of the Eldritch Hunt",
+  source: [["EldritchHunt", 149]],
+  spellcastingExtra: [
+    "faerie fire",
+    "spectral slash",
+    "moonbeam",
+    "hold person",
+    "displacing maw",
+    "spectral fury",
+    "black tentacles",
+    "maiden of bones",
+    "contact other plane",
+    "hold monster",
+  ],
   features: {
-    "subclassfeature3" : {
-			name : "Channel Divinity: Emissary of Peace",
-			source : [["EldritchHunt", 149]],
-			minlevel : 3,
+    subclassfeature3: {
+      name: "Channel Divinity: Hunt the Prey",
+      source: [["EldritchHunt", 149]],
+      minlevel: 3,
       action: [["bonus action", ""]],
-			description : desc([
+      description: desc([
         "Hunt the Prey. As a bonus action, you can call upon the sanctified hunt. You designate a creature within 60 feet of you as your prey, marking the target for 1 minute. As part of casting this channel divinity, and as a bonus action on subsequent turns, you can magically teleport up to 30 feet to an unoccupied space you can see within 5 feet of the marked target. To teleport in this way, you must be able to see the marked target.",
-        "Stolen Eldritch Gift. As a bonus action, you use your channel divinity to enhance your body beyond your mortal limits. For 10 minutes, you can add your Charisma modifier to any Athletics, Acrobatics, and Perception checks that you make."
       ]),
-			action : ["bonus action", ""],
-			spellcastingExtra : ["faerie fire", "spectral slash", "moonbeam", "hold person", "displacing maw", "spectral fury", "black tentacles", "maiden of bones", "contact other plane", "hold monster"]
-		},
-    "subclassfeature7": {
+      action: ["bonus action", ""],
+    },
+    "subclassfeature3.1": {
+      name: "Channel Divinity: Stolen Eldritch Gift",
+      source: [["EldritchHunt", 149]],
+      minlevel: 3,
+      action: [["bonus action", ""]],
+      description: desc([
+        "Stolen Eldritch Gift. As a bonus action, you use your channel divinity to enhance your body beyond your mortal limits. For 10 minutes, you can add your Charisma modifier to any Athletics, Acrobatics, and Perception checks that you make.",
+      ]),
+      action: ["bonus action", ""],
+    },
+    subclassfeature7: {
       name: "Sharpened Senses",
       source: [["EldritchHunt", 150]],
       minLevel: 7,
       description: desc([
         "You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, within that range, no creature can hide from you.",
-        "At 18th level, this range increases to 30 feet."
-      ])
+        "At 18th level, this range increases to 30 feet.",
+      ]),
     },
-    "subclassfeature15": {
-      name: "Sharpened Senses",
+    subclassfeature15: {
+      name: "Find Weakness",
       source: [["EldritchHunt", 150]],
       minLevel: 15,
       description: desc([
         "When you deal damage to a creature, you learn any damage resistances, immunities, or vulnerabilities that it has.",
-        "In addition, whenever you use your Hunt the Prey channel divinity, you can make a single weapon attack against the marked target when you reappear, as part of the same bonus action."
-      ])
+        "In addition, whenever you use your Hunt the Prey channel divinity, you can make a single weapon attack against the marked target when you reappear, as part of the same bonus action.",
+      ]),
     },
-    "subclassfeature20": {
+    subclassfeature20: {
       name: "Perfect Hunter",
       source: [["EldritchHunt", 150]],
       minLevel: 20,
-			action : ["bonus action", ""],
+      action: ["bonus action", ""],
       recovery: "long rest",
       oncelr: true,
       usages: 1,
@@ -1139,8 +1198,8 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
         "As a bonus action, you activate the power of the true hunter. For the next minute, you gain the following benefits:",
         "● You become invisible.",
         "● You cannot be grappled, restrained, or paralyzed.",
-        "● Your weapon attacks deal an extra 1d8 necrotic damage, which bypasses resistance."
-      ])
+        "● Your weapon attacks deal an extra 1d8 necrotic damage, which bypasses resistance.",
+      ]),
     },
-  }
-})
+  },
+});
