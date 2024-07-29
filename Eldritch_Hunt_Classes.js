@@ -258,7 +258,7 @@ AddSubClass("barbarian", "path of the earthbreaker", {
     /^(?=.*\bearthbreaker\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
   subname: "Path of the Earthbreaker",
   source: [["EldritchHunt", 128]],
-  abilitySave: 1, //Strength save
+  abilitySave: 1, //Strength save DC (from Gravitational Rage)
   features: {
     "earthbreaker3.1": {
       name: "Overwhelming Power",
@@ -351,7 +351,7 @@ AddSubClass("barbarian", "path of the lightning vessel", {
     /^(?=.*\blightning\b)(?=.*\bvessel\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
   subname: "Path of the Lightning Vessel",
   source: [["EldritchHunt", 130]],
-  abilitySave: 3, //Consitution save
+  abilitySave: 3, //Consitution save DC
   features: {
     lightningvessel3: {
       name: "Overwhelming Power",
@@ -813,6 +813,7 @@ AddSubClass("fighter", "blood archer", {
   subname: "Blood Archer",
   fullname: "Blood Archer",
   source: [["EldritchHunt", 142]],
+  abilitySave: 3, //Con save (from Blood Shot)
   features: {
     subclassfeature3: {
       name: "Blood Shot",
@@ -822,7 +823,6 @@ AddSubClass("fighter", "blood archer", {
         "You learn three Blood Shot options of your choice",
         "Once per turn when you fire an arrow from a shortbow or longbow as part of the Attack action, you can apply one of your Blood Shot options to that arrow",
       ]),
-      spellcastingAbility: 3, // 3 is for CON, Bloodshot DC
       recovery: "short rest",
       oncesr: true,
       usages: "Con Mod",
@@ -962,6 +962,7 @@ AddSubClass("fighter", "living nightmare", {
   subname: "Living Nightmare",
   fullname: "Living Nightmare",
   source: [["EldritchHunt", 145]],
+  abilitySave: 3, //Con save DC (from Eldritch Weaponry)
   features: {
     subclassfeature3: {
       name: "Awakened Mutation",
@@ -987,7 +988,6 @@ AddSubClass("fighter", "living nightmare", {
       source: [["EldritchHunt", 145]],
       minlevel: 3,
       action: [["bonus action", ""]],
-      spellcastingAbility: 3, // 3 is for CON
       description: desc([
         "Also at 3rd level, as a bonus action, you can mutate your body, transforming it into various weapons of destruction. They count as simple melee weapons for you, and you add your Strength modifier to the attack and damage rolls when you attack with them, as normal. When you use these weapons, you drop any items you are holding with those limbs.",
         "You choose the weapon’s form each time you make an attack roll:",
@@ -1206,7 +1206,7 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
 });
 
 AddSubClass("ranger", "lunar warden", {
-  regExpSearch : /^(?=.*lunar)(?=.*lunar).*$/i,
+  regExpSearch : /^(?=.*ranger)(?=.*lunar)(?=.*warden).*$/i,
 	subname : "Lunar Warden",
   source: [["EldritchHunt", 152]],
 	fullname : "Lunar Warden",
@@ -1280,5 +1280,96 @@ AddSubClass("ranger", "lunar warden", {
         "Once you use this feature, you can't do so again until you finish a long rest."
       ]),
     },
+  }
+})
+
+AddSubClass("ranger", "torturer conclave", {
+  regExpSearch : /^(?=.*ranger)(?=.*torturer)(?=.*conclave).*$/i,
+	subname : "Torturer Conclave",
+  source: [["EldritchHunt", 155]],
+	fullname : "Torturer Conclave",
+  abilitySave: 5, //Wis save DC (from Torturer Technique)
+  features: {
+    "subclassfeature1": {
+      name: "Torture Tools",
+      source: [["EldritchHunt", 156]],
+      description: desc([
+        "This satchel contains various small implements that can bludgeon, cut, and pierce in ways designed to maximize pain. Meant to extract the truth, many use these tools with far more nefarious intentions. Proficiency with these tools grants the following benefits:",,
+        "Exhaustion. Using these tools for 1 hour on a restrained creature causes them to gain 1 level of exhaustion, after which you must make a Dexterity (torture tools) check. The DC is equal to 20 - the creature’s Constitution modifier. On a failure, the creature takes 10 points of your choice of bludgeoning, piercing, or slashing damage.",
+        "Intimidation. When you make an Intimidation check against a creature whom you used these tools against, you gain a bonus equal to your proficiency bonus + twice the level of exhaustion the creature has.",
+        "Cost: 50 gp / Weight: 10 lb"
+      ]),
+    },
+    "subclassfeature3": {
+      name: "Tools of the Trade",
+      source: [["EldritchHunt", 157]],
+      toolProfs: ["Torturer's Tools", "Dex"],
+      skills: ["Insight", ["Insight", "full"]],
+      description: desc([
+        "You gain proficiency with torture tools and Insight checks, and your proficiency bonus is doubled for any ability check you make that uses them.",
+      ]),
+    },
+    "subclassfeature3.1": {
+      name: "Torturer Techniques",
+      source: [["EldritchHunt", 157]],
+      recovery: "long rest",
+      oncelr: true,
+      usages: "2 per technique per long rest",
+      action: ["action", ""],
+      description: desc([
+        "You learn to use techniques. You can use each technique twice and regain the ability to do so again when you finish a long rest, or when you expend a spell slot of 1st level or higher to reuse it.",
+        "Techniques. When you make a melee weapon attack against a creature while you have torture tools in one hand (or a free hand and the presence of torture tools at your disposal, such as strapped around your leg), as part of that attack, you can use a technique to enhance it in some way. You must use the technique before the attack roll is made, and regardless of the outcome, the use or the spell slot is expended. You can only use a technique once per turn, though you can use multiple different techniques in the same turn, and you can only use one technique per attack.",
+        "Empowered Techniques. At certain levels in this class, you gain the ability to empower your torturer techniques using magic. When you expend a spell slot to use a technique, you inflict extra damage, and the target suffers a penalty to saving throws it makes against the technique, as shown on the following table. You can’t empower a technique using a spell slot of a level you haven’t unlocked, even if you have higher level spell slots (e.g., through multiclassing or items).",
+        "Additionally, the first two times you use a technique after you finish a long rest, you can expend a spell slot of 1st level or higher, in which case the technique is empowered as if you had expended a spell slot one level higher (up to a maximum of the highest spell slot you’ve unlocked).",
+        "\nSpell slot lvl 1: Wis Mod (extra dmg) | Enemy Saving Throw Penalty: -1d4",
+        "\nSpell slot lvl 2: 2x Wis Mod (extra dmg) | Enemy Saving Throw Penalty: -2d4",
+        "\nSpell slot lvl 3: 3x Wis Mod (extra dmg) | Enemy Saving Throw Penalty: -3d4",
+        "\nSpell slot lvl 4: 4x Wis Mod (extra dmg) | Enemy Saving Throw Penalty: -4d4",
+        "\nSpell slot lvl 5: 5x Wis Mod (extra dmg) | Enemy Saving Throw Penalty: -5d4",
+      ]),
+    },
+    "subclassfeature3.2": {
+      name: "Techniques",
+      source: [["EldritchHunt", 157]],
+      description: desc([
+        "Combing:\nYou scrape, tear, and flay the victim's flesh. On a hit, the target takes an extra 1d12 slashing damage. \nStarting at 7th level, if you damage a target two rounds in a row with this technique, it must make a Constitution saving throw against your technique save DC. On a failure, you tear away so much flesh that its body starts to bleed deeply. It takes 1d8 necrotic damage at the start of each of its turns (this damage can’t be reduced or ignored in any way) for 1 minute. A bleeding creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. Any extra damage from empowering this technique also applies to this necrotic damage. A creature can’t suffer multiple instances of this effect at once.",
+        "Enucleation:\nYou aim a vicious strike at the target's eye, reducing their vision to a macabre blur. On a hit, the target takes an extra 1d6 of the weapon’s damage type and must succeed on a Constitution saving throw or have disadvantage on Perception checks and be blinded beyond 60 feet for 1 minute. Any healing ends this effect. The target can repeat this saving throw with disadvantage at the end of each of its turns, ending the effect on a success.\nStarting at 11th level, if the target fails its saving throw against this technique two rounds in a row, it becomes blinded for 1 minute. Creatures with more than 2 eyes have advantage on this saving throw. The target can repeat this saving throw at the end of each of its turns, ending the effect on a success.",
+        "Hamstringing:\nYou slash at the tendons. On a hit, the target takes an extra 1d8 slashing damage and must succeed on a Constitution saving throw or have its speed reduced to 0 until the start of your next turn.\nStarting at 7th level, if the target fails its saving throw against this technique two rounds in a row, you sever its tendons, and its walking speed becomes 0 for 1 minute. The target can repeat this saving throw at the end of each of its turns, ending the effect on a success.",
+        "Nerve Scraping:\nYou damage the target’s nerves, causing its body to writhe in pain. On a hit, it takes an extra 1d8 psychic damage. The target must then succeed on a Constitution saving throw or lose its grip on reality, unable to differentiate friend from foe through the veil of pain; until the start of your next turn, it must use its action before moving on each of its turns to make a melee attack against a randomly determined creature within its reach other than itself. If no creature is within its reach, it acts as normal, though still can’t discern allies and enemies, and if it makes an attack, it randomly determines a target within its reach or range other than itself.\nStarting at 11th level, if the target fails its saving throw against this technique two rounds in a row, it suffers a 1d4 penalty to its attack rolls and saving throws for 1 minute. The target can repeat this saving throw at the end of each of its turns, ending the effect on a success.",
+        "Throat Chop:\nYou deliver a fierce cleave to the target's throat, severely impairing its ability to breathe and speak. On a hit, the target takes an extra 1d8 bludgeoning damage and can’t speak or use the verbal components of spells until the start of your next turn.\nStarting at 11th level, if you hit a target two rounds in a row with this technique, it must make a Constitution saving throw against your technique save DC. On a failure, the pain shocks the target, which becomes stunned until the end of your next turn.",
+        "Tympanic Rupture:\nYou slam the target’s ears in an attempt to destabilize it. On a hit, the target takes an extra 1d10 bludgeoning damage and must succeed on a Constitution saving throw or become deafened for 1 minute. A deafened creature can repeat the saving throw at the end of each of its turns, ending the effect on a success\nStarting at 7th level, if the target fails its saving throw against this technique two rounds in a row, it is disoriented for the duration. While disoriented, the target can’t take reactions."
+      ])
+    },
+    "subclassfeature7": {
+      name: "Depraved Mind", 
+      source: [["EldritchHunt", 158]],
+      dmgres: "Psychic",
+      savetxt: {
+        immune: ["frightened"],
+      },
+      description: desc([
+        "You are immune to the frightened condition and gain resistance to psychic damage.",
+        "In addition, if a creature attempts to read your mind or telepathically talk to you against your will, it must first make a Wisdom saving throw against your technique save DC. On a failure, it witnesses the horrors within your mind and fails to communicate with you, taking psychic damage equal to your level. On a success, it must repeat the saving throw after each minute spent reading your mind or telepathically talking to you against your will."
+      ])
+    },
+    "subclassfeature11": {
+      name: "Depraved Mind", 
+      source: [["EldritchHunt", 158]],
+      usages: "Wid mod", 
+      usagescalc: "event.value = Math.max(1, What('Wis Mod'))",
+      recovery: "long rest",
+      oncelr: true,
+      description: desc([
+        "Starting at 11th level, when you damage a creature with your torturer techniques, you can attempt to rattle its mind with the pain. It must succeed on a Wisdom saving throw against your technique save DC or start dissociating your presence, its mind refusing to acknowledge the anguish you are causing it, only perceiving you as a flicker; you become heavily obscured to it for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on a success.",
+        "You can use this feature a number of times equal to your Wisdom modifier (minimum 1) and regain all expended uses when you finish a long rest."
+      ])
+    },
+    "subclassfeature15": {
+      name: "Depraved Mind", 
+      source: [["EldritchHunt", 158]],
+      description: desc([
+        "At 15th level, you know how to cause pain to your quarry both physically and mentally. When a creature that you can see within 60 feet of you that failed its saving throw against one of your torturer techniques since the start of your last turn makes a Wisdom, Charisma, or Intelligence saving throw, you can use your reaction to flourish your blades, smile, or perform a similar terrifying display, imposing a -1d10 penalty to the saving throw. Creatures that are immune to the frightened condition are immune to this effect.",
+      ])
+    }
   }
 })
