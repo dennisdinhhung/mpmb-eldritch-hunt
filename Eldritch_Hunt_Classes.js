@@ -1096,7 +1096,10 @@ AddSubClass("monk", "way of the fire dancer", {
       minLevel: 6,
       usages: "Wis Mod",
       usagescalc: "event.value = Math.max(1, 1 + What('Wis Mod'))",
-      action: [["action", ""], ["reaction", " (enemy misses)"]],
+      action: [
+        ["action", ""],
+        ["reaction", " (enemy misses)"],
+      ],
       description: desc([
         "When you use Step of the Wind, if you move through each space adjacent to a creature on your turn, you create a vortex of fire around them. The target must make a Dexterity saving throw against your ki save DC, taking 2d6 fire damage and becoming trapped in a vortex of flames that appears in its space on a failed save. On a successful save, the target takes half as much damage and the vortex fails to appear. The vortex is opaque and obstructs line of sight. If the target attempts to move out of the flames, it must first succeed on a Wisdom saving throw against your ki save DC. On a failure, it takes 1d6 fire damage and is charmed by the flames, reducing its speed to 0 until the start of its next turn, at which point the vortex and its effects end. On a success, it moves through the vortex, ending the effect. These flames do not damage other creatures.",
         "In addition, while your flames are active, if a creature misses you with a melee attack, you can use your reaction to make an unarmed strike or spend a ki point to use your Flurry of Blows feature against it.",
@@ -1206,12 +1209,12 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
 });
 
 AddSubClass("ranger", "lunar warden", {
-  regExpSearch : /^(?=.*ranger)(?=.*lunar)(?=.*warden).*$/i,
-	subname : "Lunar Warden",
+  regExpSearch: /^(?=.*ranger)(?=.*lunar)(?=.*warden).*$/i,
+  subname: "Lunar Warden",
   source: [["EldritchHunt", 152]],
-	fullname : "Lunar Warden",
+  fullname: "Lunar Warden",
   features: {
-    "subclasfeature3": {
+    subclasfeature3: {
       name: "Astral Affinity",
       source: [["EldritchHunt", 152]],
       minLevel: 3,
@@ -1219,7 +1222,7 @@ AddSubClass("ranger", "lunar warden", {
       savetxt: {
         adv_vs: ["direct effects from Eldritch Moons"],
       },
-      vision : [["Darkvision", 60]],
+      vision: [["Darkvision", 60]],
     },
     "subclassfeature3.1": {
       name: "Moon Conduit",
@@ -1240,19 +1243,22 @@ AddSubClass("ranger", "lunar warden", {
         "\nShattered Moon:\nYou beckon the shattered powers of the moon, attempting to break the magic in front of you. When you or a creature that you can see within 30 feet of you makes a saving throw against a spell or magical effect, you can use your reaction to dampen the magic, granting advantage on the saving throw.\nLunar Alignment. When this Conduit gives a creature advantage on a saving throw, they can reroll one of the dice once. Alternatively, you can use this reaction to instead cast counterspell at 5th level, though it automatically fails against spells of 6th level or higher. Wisdom is your spellcasting modifier for this spell.",
         "\nScorching Moon:\nYou wreathe yourself in flames to scorch your foes. If you move at least 20 feet in a straight line toward a creature and then hit it with a melee attack on the same turn, you can force the target to make a Strength saving throw against your spell save DC. On a failure, they are knocked prone and take a number of d4s of fire damage equal to your Wisdom modifier.\nLunar Alignment. Creatures automatically fail their saving throw against this Conduit, and the fire damage they take becomes d6s instead of d4s and ignores resistance to fire damage.",
         "\nVacuous Moon:\nYou step through the void. After being damaged by a ranged attack, you can use your reaction to teleport to an empty space you can see within 10 feet of the attacker. If the attacker is further than 60 feet away, this reaction fails.\nLunar Alignment. When you use this Conduit, you can teleport to an empty space you can see within 30 feet of the attacker and make a single weapon attack against them. If the attacker is further than 300 feet away, this reaction fails.",
-        "\nGlowering Moon:\nYou subjugate your foes to the crushing woe of hopelessness. You can cast the bane spell at 2nd level without expanding a spell slot. If the targets are in direct moonlight, they have disadvantage on the saving throw.\nLunar Alignment. Creatures in direct moonlight now automatically fail the saving throw, and creatures under the effect of the spell take psychic damage equal to your level in this class at the start of each of their turns. If a creature remains under the effect of the spell for its entire duration, they fall unconscious. The condition ends if someone else uses an action to shake the creature out of its stupor."
+        "\nGlowering Moon:\nYou subjugate your foes to the crushing woe of hopelessness. You can cast the bane spell at 2nd level without expanding a spell slot. If the targets are in direct moonlight, they have disadvantage on the saving throw.\nLunar Alignment. Creatures in direct moonlight now automatically fail the saving throw, and creatures under the effect of the spell take psychic damage equal to your level in this class at the start of each of their turns. If a creature remains under the effect of the spell for its entire duration, they fall unconscious. The condition ends if someone else uses an action to shake the creature out of its stupor.",
       ]),
     },
-    "subclassfeature7": {
+    subclassfeature7: {
       name: "Lunar Guidance",
       source: [["EldritchHunt", 153]],
       minLevel: 7,
-      dmgres: ["Radiant", "Radiant; if existed, choose Cold of Necrotic resistance"],
+      dmgres: [
+        "Radiant",
+        "Radiant; if existed, choose Cold of Necrotic resistance",
+      ],
       description: desc([
         "Each time you use a Moon Conduit, a shard of the lunar energy remains within your body for 1 minute or until you expend it or use another Moon Conduit. You can expend this energy to gain advantage on one ability check, attack roll, or saving throw (no action required).",
       ]),
     },
-    "subclassfeature11": {
+    subclassfeature11: {
       name: "Additional Moon Conduits",
       source: [["EldritchHunt", 154]],
       minLevel: 11,
@@ -1263,10 +1269,10 @@ AddSubClass("ranger", "lunar warden", {
         "\nSlumbering Moon:\nYou can warp your body through eldritch means. You can cast misty step without expending a spell slot or using material components.\nLunar Alignment. You can cast dimension door without expending a spell slot or using material components.",
         "\nKrakenlight:\nYou create a bioluminescent lure before you. As an action, you can create a light above your head that emits dim light in a 10-foot radius centered on you. Hostile creatures within 30 feet of you that see the lure must make a Wisdom saving throw against your spell save DC or be charmed. While charmed, they are incapacitated and are compelled to move towards the lure with their movement each turn, only ending their movement when in the light. The charm effect lasts for 1 minute or until the creature takes damage.\nLunar Alignment. When you create this lure, the range is doubled, creatures have disadvantage on the saving throw, and the first time they take damage the effect doesn’t end.",
         "\nCreeping Tarlight:\nYou can weave the tar lurking in the shadows to slow your foes. As an action choose up to three creatures within 30 feet of you can see, they must succeed on a Dexterity saving throw or be covered by tar for 1 minute. While covered in tar, their speed is halved, and they take a -2 penalty to AC and Dexterity saving throws. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Creatures standing in darkness have disadvantage on this saving throw. You must concentrate on this effect as you would concentrate on a spell.\nLunar Alignment. You can harness more of the tar and can choose up to six creatures. While covered in tar, creatures are instead affected by the slow spell. You do not need to concentrate on this effect.",
-        "\nSanguine Eclipse:\nYou cause your foes to turn against each other. As an action, you can choose a creature within 30 feet of you that you can see that must make an Intelligence saving throw. On a failed save, it regards another creature of your choice that you can see within 90 feet of you as its mortal enemy until the start of your next turn. It must use its actions to attempt to kill its mortal enemy, disregarding all other creatures. Creatures that are immune to the charmed condition are immune to this ability.\nLunar Alignment. The duration of this Conduit extends to 1 minute. An affected creature can repeat the saving throw at the end of each of its turns to end the effect early. The effect also ends early if the target's quarry dies."
+        "\nSanguine Eclipse:\nYou cause your foes to turn against each other. As an action, you can choose a creature within 30 feet of you that you can see that must make an Intelligence saving throw. On a failed save, it regards another creature of your choice that you can see within 90 feet of you as its mortal enemy until the start of your next turn. It must use its actions to attempt to kill its mortal enemy, disregarding all other creatures. Creatures that are immune to the charmed condition are immune to this ability.\nLunar Alignment. The duration of this Conduit extends to 1 minute. An affected creature can repeat the saving throw at the end of each of its turns to end the effect early. The effect also ends early if the target's quarry dies.",
       ]),
     },
-    "subclassfeature15": {
+    subclassfeature15: {
       name: "Celestial Tide",
       source: [["EldritchHunt", 154]],
       minLevel: 7,
@@ -1277,32 +1283,34 @@ AddSubClass("ranger", "lunar warden", {
       description: desc([
         "As an action, you can cast the reverse gravity spell without expending a spell slot or using material components, and the area of the spell is illuminated by direct moonlight.",
         "When the spell ends, the lunar energy disperses and flows towards you, refreshing your lunar powers. You regain all expended uses of your Moon Conduit feature.",
-        "Once you use this feature, you can't do so again until you finish a long rest."
+        "Once you use this feature, you can't do so again until you finish a long rest.",
       ]),
     },
-  }
-})
+  },
+});
 
 AddSubClass("ranger", "torturer conclave", {
-  regExpSearch : /^(?=.*ranger)(?=.*torturer)(?=.*conclave).*$/i,
-	subname : "Torturer Conclave",
+  regExpSearch: /^(?=.*ranger)(?=.*torturer)(?=.*conclave).*$/i,
+  subname: "Torturer Conclave",
   source: [["EldritchHunt", 155]],
-	fullname : "Torturer Conclave",
+  fullname: "Torturer Conclave",
   abilitySave: 5, //Wis save DC (from Torturer Technique)
   features: {
-    "subclassfeature1": {
+    subclassfeature1: {
       name: "Torture Tools",
       source: [["EldritchHunt", 156]],
       description: desc([
-        "This satchel contains various small implements that can bludgeon, cut, and pierce in ways designed to maximize pain. Meant to extract the truth, many use these tools with far more nefarious intentions. Proficiency with these tools grants the following benefits:",,
+        "This satchel contains various small implements that can bludgeon, cut, and pierce in ways designed to maximize pain. Meant to extract the truth, many use these tools with far more nefarious intentions. Proficiency with these tools grants the following benefits:",
+        ,
         "Exhaustion. Using these tools for 1 hour on a restrained creature causes them to gain 1 level of exhaustion, after which you must make a Dexterity (torture tools) check. The DC is equal to 20 - the creature’s Constitution modifier. On a failure, the creature takes 10 points of your choice of bludgeoning, piercing, or slashing damage.",
         "Intimidation. When you make an Intimidation check against a creature whom you used these tools against, you gain a bonus equal to your proficiency bonus + twice the level of exhaustion the creature has.",
-        "Cost: 50 gp / Weight: 10 lb"
+        "Cost: 50 gp / Weight: 10 lb",
       ]),
     },
-    "subclassfeature3": {
+    subclassfeature3: {
       name: "Tools of the Trade",
       source: [["EldritchHunt", 157]],
+      minlevel: 3,
       toolProfs: ["Torturer's Tools", "Dex"],
       skills: ["Insight", ["Insight", "full"]],
       description: desc([
@@ -1312,6 +1320,7 @@ AddSubClass("ranger", "torturer conclave", {
     "subclassfeature3.1": {
       name: "Torturer Techniques",
       source: [["EldritchHunt", 157]],
+      minlevel: 3,
       recovery: "long rest",
       oncelr: true,
       usages: "2 per technique per long rest",
@@ -1337,39 +1346,97 @@ AddSubClass("ranger", "torturer conclave", {
         "Hamstringing:\nYou slash at the tendons. On a hit, the target takes an extra 1d8 slashing damage and must succeed on a Constitution saving throw or have its speed reduced to 0 until the start of your next turn.\nStarting at 7th level, if the target fails its saving throw against this technique two rounds in a row, you sever its tendons, and its walking speed becomes 0 for 1 minute. The target can repeat this saving throw at the end of each of its turns, ending the effect on a success.",
         "Nerve Scraping:\nYou damage the target’s nerves, causing its body to writhe in pain. On a hit, it takes an extra 1d8 psychic damage. The target must then succeed on a Constitution saving throw or lose its grip on reality, unable to differentiate friend from foe through the veil of pain; until the start of your next turn, it must use its action before moving on each of its turns to make a melee attack against a randomly determined creature within its reach other than itself. If no creature is within its reach, it acts as normal, though still can’t discern allies and enemies, and if it makes an attack, it randomly determines a target within its reach or range other than itself.\nStarting at 11th level, if the target fails its saving throw against this technique two rounds in a row, it suffers a 1d4 penalty to its attack rolls and saving throws for 1 minute. The target can repeat this saving throw at the end of each of its turns, ending the effect on a success.",
         "Throat Chop:\nYou deliver a fierce cleave to the target's throat, severely impairing its ability to breathe and speak. On a hit, the target takes an extra 1d8 bludgeoning damage and can’t speak or use the verbal components of spells until the start of your next turn.\nStarting at 11th level, if you hit a target two rounds in a row with this technique, it must make a Constitution saving throw against your technique save DC. On a failure, the pain shocks the target, which becomes stunned until the end of your next turn.",
-        "Tympanic Rupture:\nYou slam the target’s ears in an attempt to destabilize it. On a hit, the target takes an extra 1d10 bludgeoning damage and must succeed on a Constitution saving throw or become deafened for 1 minute. A deafened creature can repeat the saving throw at the end of each of its turns, ending the effect on a success\nStarting at 7th level, if the target fails its saving throw against this technique two rounds in a row, it is disoriented for the duration. While disoriented, the target can’t take reactions."
-      ])
+        "Tympanic Rupture:\nYou slam the target’s ears in an attempt to destabilize it. On a hit, the target takes an extra 1d10 bludgeoning damage and must succeed on a Constitution saving throw or become deafened for 1 minute. A deafened creature can repeat the saving throw at the end of each of its turns, ending the effect on a success\nStarting at 7th level, if the target fails its saving throw against this technique two rounds in a row, it is disoriented for the duration. While disoriented, the target can’t take reactions.",
+      ]),
     },
-    "subclassfeature7": {
-      name: "Depraved Mind", 
+    subclassfeature7: {
+      name: "Depraved Mind",
       source: [["EldritchHunt", 158]],
+      minlevel: 7,
       dmgres: "Psychic",
       savetxt: {
         immune: ["frightened"],
       },
       description: desc([
         "You are immune to the frightened condition and gain resistance to psychic damage.",
-        "In addition, if a creature attempts to read your mind or telepathically talk to you against your will, it must first make a Wisdom saving throw against your technique save DC. On a failure, it witnesses the horrors within your mind and fails to communicate with you, taking psychic damage equal to your level. On a success, it must repeat the saving throw after each minute spent reading your mind or telepathically talking to you against your will."
-      ])
+        "In addition, if a creature attempts to read your mind or telepathically talk to you against your will, it must first make a Wisdom saving throw against your technique save DC. On a failure, it witnesses the horrors within your mind and fails to communicate with you, taking psychic damage equal to your level. On a success, it must repeat the saving throw after each minute spent reading your mind or telepathically talking to you against your will.",
+      ]),
     },
-    "subclassfeature11": {
-      name: "Depraved Mind", 
+    subclassfeature11: {
+      name: "Depraved Mind",
       source: [["EldritchHunt", 158]],
-      usages: "Wid mod", 
+      minlevel: 11,
+      usages: "Wid mod",
       usagescalc: "event.value = Math.max(1, What('Wis Mod'))",
       recovery: "long rest",
       oncelr: true,
       description: desc([
         "Starting at 11th level, when you damage a creature with your torturer techniques, you can attempt to rattle its mind with the pain. It must succeed on a Wisdom saving throw against your technique save DC or start dissociating your presence, its mind refusing to acknowledge the anguish you are causing it, only perceiving you as a flicker; you become heavily obscured to it for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on a success.",
-        "You can use this feature a number of times equal to your Wisdom modifier (minimum 1) and regain all expended uses when you finish a long rest."
-      ])
+        "You can use this feature a number of times equal to your Wisdom modifier (minimum 1) and regain all expended uses when you finish a long rest.",
+      ]),
     },
-    "subclassfeature15": {
-      name: "Depraved Mind", 
+    subclassfeature15: {
+      name: "Depraved Mind",
       source: [["EldritchHunt", 158]],
+      minlevel: 15,
       description: desc([
         "At 15th level, you know how to cause pain to your quarry both physically and mentally. When a creature that you can see within 60 feet of you that failed its saving throw against one of your torturer techniques since the start of your last turn makes a Wisdom, Charisma, or Intelligence saving throw, you can use your reaction to flourish your blades, smile, or perform a similar terrifying display, imposing a -1d10 penalty to the saving throw. Creatures that are immune to the frightened condition are immune to this effect.",
+      ]),
+    },
+  },
+});
+
+AddSubClass("rogue", "blade of radiance", {
+  regExpSearch: /^(?=.*rogue)(?=.*blade)(?=.*radiance).*$/i,
+  subname: "Blade of Radiance",
+  fullname: "Blade of Radiance",
+  source: [["EldritchHunt", 159]],
+  abilitySave: 5, //Wis save DC (from Divine Blessings)
+  features: {
+    subclassfeature3: {
+      name: "Sanctified Champion",
+      source: [["EldritchHunt", 159]],
+      minlevel: 3,
+      armorProfs: [false, true, false, false],
+      weaponProfs: [false, true],
+      description: desc([
+        "At 3rd level, at the end of a long rest, you can perform a ritual on a melee weapon you are proficient with that deals piercing or slashing damage, sanctifying it. It becomes your sanctified blade, and you can only have one such blade at a time. When in your hands, your sanctified blade has the finesse property and is considered silvered.",
+      ]),
+    },
+    "subclassfeature3.1": {
+      name: "Divine Blessings",
+      source: [["EldritchHunt", 159]],
+      minlevel: 3,
+      recovery: "short rest",
+      oncesr: true,
+      usages: "Wis mod",
+      usagescalc: "event.value = Math.max(1, 1 + What('Wis Mod'))",
+      description: desc([
+        "You know the following features that each use your Divine points.",
+        "● Armor of the Faithful. When a creature targets you with an attack, you can expend one Divine point as a reaction. The target must make a Wisdom saving throw against your Radiance save DC. On a failed save, the creature must choose a new target or lose the attack or spell, and the creature can’t target you until the start of your next turn. This feature doesn't protect you from area effects, such as the explosion of a fireball.",
+        "● Divine Inspiration. When you make a Religion, a History, or an Insight check, you can expend one Divine point to reroll the die and must use the new result. You can choose to do so after you roll the die, but before the outcome is determined. You gain a bonus to the check equal to your Wisdom modifier.",
+        "● Rend the Blasphemous. On your turn after taking the Attack action with your sanctified blade, you can expend one Divine point as bonus action to let the divine hand guide you. Make a weapon attack against a creature within your reach. You gain a bonus to your attack roll equal to your Wisdom modifier.",
+      ]),
+    },
+    subclassfeature9: {
+      name: "Righteous Armament",
+      source: [["EldritchHunt", 160]],
+      minLevel: 9,
+      description: desc([
+        "At 9th level your faith gives you the power to rebel against fate itself. You learn the following features that each use your Divine points:",
+        "● Chains of Judgement. When you hit a creature with your sanctified blade, you can expend one Divine point to create radiant chains that restrain the creature. The target must succeed on a Strength saving throw against your Radiance save DC or take radiant damage equal to your Wisdom modifier and become restrained until the end of your next turn.",
+        "● Divine Retaliation. When a creature damages you with a melee attack, you can use your reaction and expend one Divine point to make a melee weapon attack with your sanctified blade against the creature. If you hit, you gain a bonus to the attack's damage roll equal to your Wisdom modifier.",
+        "● Erupting Blades. When you hit a creature with an attack that could apply your Sneak Attack damage, you can expend one Divine point to cause a rain of radiant blades to fall on the battlefield. Instead of damaging the creature with your Sneak Attack, all creatures in a 20-foot-cone originating from the target (including the target) must make a Dexterity saving throw against your Radiance save DC, taking radiant damage equal to your Wisdom modifier + half your Sneak Attack damage on a failed saving throw, or half as much damage on a successful one."
+      ])
+    },
+    subclassfeature13: {
+      name: "Saintly Revelations",
+      source: [["EldritchHunt", 160]],
+      minLevel: 13,
+      description: desc([
+        "You can speak a command word (no action required) to cause your blade to emit bright light in a 30-foot radius and dim light for an additional 30 feet. The light lasts until you speak the command word again or you stow your weapon. While emitting light in this way, the weapon is considered a magic weapon and attacks made with it deal an extra 2d4 radiant damage on a hit.",
+        "In addition, while wielding the blade, as an action, you can cast spirit guardians, requiring no components. Creatures within the area of the spell are considered within 5 feet of an enemy for the purposes of your Sneak Attack. Once you cast the spell in this way, you can't do so again until you finish a long rest, unless you expend three Divine points to use it again."
       ])
     }
-  }
-})
+  },
+});
