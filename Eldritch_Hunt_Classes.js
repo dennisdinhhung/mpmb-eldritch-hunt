@@ -1440,3 +1440,56 @@ AddSubClass("rogue", "blade of radiance", {
     }
   },
 });
+
+AddSubClass("rogue", "shadow", {
+  regExpSearch: /^(?=.*rogue)(?=.*shadow).*$/i,
+  subname: "Shadow",
+  fullname: "Shadow",
+  source: [["EldritchHunt", 161]],
+  features: {
+    subclassfeature3: {
+      name: "Umbral Weapon",
+      source: [["EldritchHunt", 162]],
+      weaponProfs: [["firearm"]],
+      description: desc([
+        "You learn to make an umbral weapon by wreathing a rifle in shadows with a grim ritual. You perform the ritual over the course of 1 hour, which can be done during a short rest or long rest. The rifle must be within your reach throughout the ritual, at the conclusion of which you touch the weapon and bond with it.",
+        "Once you have bonded a rifle to yourself, you can't be disarmed of it unless you are incapacitated. If it is on the same plane of existence, you can summon the rifle (no action required) on your turn, causing it to teleport instantly to your hand. Your umbral weapon keeps its original properties with the following alterations when you use it: it doesn't have the Barrel property, it doesn’t require ammunition, and it doesn’t make sound when fired.",
+        "You can only have one bonded weapon. If you attempt to bond with a second weapon, your bond with the first one ends."
+      ])
+    },
+    "subclassfeature3.1": {
+      name: "Shadow Movement",
+      source: [["EldritchHunt", 162]],
+      description: desc([
+        "When you are in darkness, you can use your bonus action to take the Hide action with advantage on the Stealth check and turn into a shadowy, amorphous version of yourself. While in this form, you have advantage on Stealth checks, can move through a space as narrow as 1 inch wide without squeezing, have a climbing speed equal to your walking speed, and are incapacitated. This transformation ends after 1 minute, if you enter dim or bright light, or if you take damage.",
+        "You can choose to end the transformation early (no action required) on your turn. If you do so and are in darkness, you can make one weapon attack with your umbral weapon, weaving shadows into a bullet; if you miss, your location isn’t revealed. The damage die of this attack is 1d4, instead of the weapon’s regular damage die.",
+      ])
+    },
+    subclassfeature9: {
+      name: "Tenebrous Body",
+      source: [["EldritchHunt", 162]],
+      vision: [["Normal vision", 120]],
+      description: desc([
+        "You can see normally in darkness and dim light, both magical and nonmagical, to a distance of 120 feet. In addition, you can maintain the transformation of your Shadow Movement for up to 1 hour."
+      ])
+    },
+    subclassfeature13: {
+      name: "Grim Curse",
+      source: [["EldritchHunt", 162]],
+      description: desc([
+        "When you hit a creature with your umbral weapon and deal Sneak Attack damage to it, you can sacrifice up to three of your Sneak Attack damage dice. Each die sacrificed in this way doesn't deal damage. Instead, the target must make a saving throw (DC equals 8 + your Dexterity modifier + your proficiency bonus). On a failure, it suffers a condition until the start of your next turn. If you and the target are in darkness, the target suffers a - 1d6 penalty to its saving throw. The type of saving throw and resulting condition are based on the number of Sneak Attack damage dice you sacrifice.",
+        "1 Sneak Attack Die Sacrifice: cause Prone + Dex Save",
+        "2 Sneak Attack Dice Sacrifice: cause Restrained + Str Save",
+        "3 Sneak Attack Dice Sacrifice: cause Blinded + Con Save",
+      ])
+    },
+    subclassfeature17: {
+      name: "Veil of Shadows",
+      source: [["EldritchHunt", 162]],
+      description: desc([
+        "When you use your Uncanny Dodge feature, you can choose to teleport to an unoccupied space you can see within 30 feet of you that is in darkness and make one attack with your umbral weapon against the attacker. If there are no such spaces available, you can’t teleport, but you can make the attack if you are already in darkness.",
+      ])
+    }
+  }
+})
+
