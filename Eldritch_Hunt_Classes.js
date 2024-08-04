@@ -1426,8 +1426,8 @@ AddSubClass("rogue", "blade of radiance", {
         "At 9th level your faith gives you the power to rebel against fate itself. You learn the following features that each use your Divine points:",
         "● Chains of Judgement. When you hit a creature with your sanctified blade, you can expend one Divine point to create radiant chains that restrain the creature. The target must succeed on a Strength saving throw against your Radiance save DC or take radiant damage equal to your Wisdom modifier and become restrained until the end of your next turn.",
         "● Divine Retaliation. When a creature damages you with a melee attack, you can use your reaction and expend one Divine point to make a melee weapon attack with your sanctified blade against the creature. If you hit, you gain a bonus to the attack's damage roll equal to your Wisdom modifier.",
-        "● Erupting Blades. When you hit a creature with an attack that could apply your Sneak Attack damage, you can expend one Divine point to cause a rain of radiant blades to fall on the battlefield. Instead of damaging the creature with your Sneak Attack, all creatures in a 20-foot-cone originating from the target (including the target) must make a Dexterity saving throw against your Radiance save DC, taking radiant damage equal to your Wisdom modifier + half your Sneak Attack damage on a failed saving throw, or half as much damage on a successful one."
-      ])
+        "● Erupting Blades. When you hit a creature with an attack that could apply your Sneak Attack damage, you can expend one Divine point to cause a rain of radiant blades to fall on the battlefield. Instead of damaging the creature with your Sneak Attack, all creatures in a 20-foot-cone originating from the target (including the target) must make a Dexterity saving throw against your Radiance save DC, taking radiant damage equal to your Wisdom modifier + half your Sneak Attack damage on a failed saving throw, or half as much damage on a successful one.",
+      ]),
     },
     subclassfeature13: {
       name: "Saintly Revelations",
@@ -1435,9 +1435,9 @@ AddSubClass("rogue", "blade of radiance", {
       minLevel: 13,
       description: desc([
         "You can speak a command word (no action required) to cause your blade to emit bright light in a 30-foot radius and dim light for an additional 30 feet. The light lasts until you speak the command word again or you stow your weapon. While emitting light in this way, the weapon is considered a magic weapon and attacks made with it deal an extra 2d4 radiant damage on a hit.",
-        "In addition, while wielding the blade, as an action, you can cast spirit guardians, requiring no components. Creatures within the area of the spell are considered within 5 feet of an enemy for the purposes of your Sneak Attack. Once you cast the spell in this way, you can't do so again until you finish a long rest, unless you expend three Divine points to use it again."
-      ])
-    }
+        "In addition, while wielding the blade, as an action, you can cast spirit guardians, requiring no components. Creatures within the area of the spell are considered within 5 feet of an enemy for the purposes of your Sneak Attack. Once you cast the spell in this way, you can't do so again until you finish a long rest, unless you expend three Divine points to use it again.",
+      ]),
+    },
   },
 });
 
@@ -1454,8 +1454,8 @@ AddSubClass("rogue", "shadow", {
       description: desc([
         "You learn to make an umbral weapon by wreathing a rifle in shadows with a grim ritual. You perform the ritual over the course of 1 hour, which can be done during a short rest or long rest. The rifle must be within your reach throughout the ritual, at the conclusion of which you touch the weapon and bond with it.",
         "Once you have bonded a rifle to yourself, you can't be disarmed of it unless you are incapacitated. If it is on the same plane of existence, you can summon the rifle (no action required) on your turn, causing it to teleport instantly to your hand. Your umbral weapon keeps its original properties with the following alterations when you use it: it doesn't have the Barrel property, it doesn’t require ammunition, and it doesn’t make sound when fired.",
-        "You can only have one bonded weapon. If you attempt to bond with a second weapon, your bond with the first one ends."
-      ])
+        "You can only have one bonded weapon. If you attempt to bond with a second weapon, your bond with the first one ends.",
+      ]),
     },
     "subclassfeature3.1": {
       name: "Shadow Movement",
@@ -1463,33 +1463,82 @@ AddSubClass("rogue", "shadow", {
       description: desc([
         "When you are in darkness, you can use your bonus action to take the Hide action with advantage on the Stealth check and turn into a shadowy, amorphous version of yourself. While in this form, you have advantage on Stealth checks, can move through a space as narrow as 1 inch wide without squeezing, have a climbing speed equal to your walking speed, and are incapacitated. This transformation ends after 1 minute, if you enter dim or bright light, or if you take damage.",
         "You can choose to end the transformation early (no action required) on your turn. If you do so and are in darkness, you can make one weapon attack with your umbral weapon, weaving shadows into a bullet; if you miss, your location isn’t revealed. The damage die of this attack is 1d4, instead of the weapon’s regular damage die.",
-      ])
+      ]),
     },
     subclassfeature9: {
       name: "Tenebrous Body",
       source: [["EldritchHunt", 162]],
       vision: [["Normal vision", 120]],
       description: desc([
-        "You can see normally in darkness and dim light, both magical and nonmagical, to a distance of 120 feet. In addition, you can maintain the transformation of your Shadow Movement for up to 1 hour."
-      ])
+        "You can see normally in darkness and dim light, both magical and nonmagical, to a distance of 120 feet. In addition, you can maintain the transformation of your Shadow Movement for up to 1 hour.",
+      ]),
     },
     subclassfeature13: {
       name: "Grim Curse",
       source: [["EldritchHunt", 162]],
+      abilitySave: 2, //Dex save DC (from Grim Curse)
       description: desc([
         "When you hit a creature with your umbral weapon and deal Sneak Attack damage to it, you can sacrifice up to three of your Sneak Attack damage dice. Each die sacrificed in this way doesn't deal damage. Instead, the target must make a saving throw (DC equals 8 + your Dexterity modifier + your proficiency bonus). On a failure, it suffers a condition until the start of your next turn. If you and the target are in darkness, the target suffers a - 1d6 penalty to its saving throw. The type of saving throw and resulting condition are based on the number of Sneak Attack damage dice you sacrifice.",
         "1 Sneak Attack Die Sacrifice: cause Prone + Dex Save",
         "2 Sneak Attack Dice Sacrifice: cause Restrained + Str Save",
         "3 Sneak Attack Dice Sacrifice: cause Blinded + Con Save",
-      ])
+      ]),
     },
     subclassfeature17: {
       name: "Veil of Shadows",
       source: [["EldritchHunt", 162]],
       description: desc([
         "When you use your Uncanny Dodge feature, you can choose to teleport to an unoccupied space you can see within 30 feet of you that is in darkness and make one attack with your umbral weapon against the attacker. If there are no such spaces available, you can’t teleport, but you can make the attack if you are already in darkness.",
-      ])
-    }
-  }
-})
+      ]),
+    },
+  },
+});
+
+AddSubClass("rogue", "shadow", {
+  regExpSearch: /^(?=.*rogue)(?=.*shadow).*$/i,
+  subname: "Shadow",
+  fullname: "Shadow",
+  source: [["EldritchHunt", 161]],
+  features: {
+    subclassfeature1: {
+      name: "Mind of Madness",
+      source: [["EldritchHunt", 164]],
+      description: desc([
+        "Whenever you gain a madness, you can choose to reroll on the appropriate table, gaining the new effect instead.",
+        "In addition, when a creature attempts to read your thoughts or scry on you, they can only witness the insanity that ravages you. They take psychic damage equal to your level in this class, their magic or ability fails, and they must succeed on a Wisdom saving throw against your spell save DC or gain a short-term madness.",
+      ]),
+    },
+    "subclassfeature1.1": {
+      name: "Spread of Chaos",
+      source: [["EldritchHunt", 164]],
+      description: desc([
+        "When you cast a spell of 1st level or higher that doesn’t have a range of self, you can cause each creature affected by the spell to make a Wisdom saving throw against your spell save DC or gain a short- term madness.",
+        "If your spell targets more than one creature, you must make a Charisma saving throw against a DC equal to 10 + the spell level + the number of creatures targeted by the spell. On a failure, the spell fails and you gain one short- term madness, but you do not expend the spell slot nor the use of this feature. On a success, each creature is affected as normal. Once you use this feature, you must finish a long rest before you can use it again.",
+        "Any time before you regain the use of this feature, the GM can have you roll on the Short-Term Madness table (see page 271) immediately after you cast a sorcerer spell of 1st level or higher. You then regain the use of this feature.",
+      ]),
+    },
+    subclassfeature6: {
+      name: "Depths of Depravity",
+      source: [["EldritchHunt", 164]],
+      description: desc([
+        "When a creature that you can see within 120 feet of you must make a saving throw, if you are affected by at least one madness, you can use your reaction to add insanity to the magic, giving the creature disadvantage on the saving throw. If the creature fails the saving throw, you feed on the ensuing chaos; you regain a sorcery point for each madness affecting you.",
+        "Once you use this feature to regain sorcery points, you can't use it again until you finish a short or long rest.",
+      ]),
+    },
+    subclassfeature14: {
+      name: "Powers of Insanity",
+      source: [["EldritchHunt", 164]],
+      description: desc([
+        "At 14th level, whenever you roll on a madness table and roll a d10 to determine which specific aspect of the madness overtakes you, you can roll a second d10 and choose the lower result of the two. In addition, gaining a madness doesn’t cause you to be stunned.",
+      ]),
+    },
+    subclassfeature18: {
+      name: "Maddening Hunger",
+      source: [["EldritchHunt", 164]],
+      description: desc([
+        "At 18th level, whenever you gain a madness, you regain sorcery points: short term madness, 1d4 sorcery points; long- term madness, 2d4 sorcery points; and indefinite madness, 4d4 sorcery points.",
+      ]),
+    },
+  },
+});
 
