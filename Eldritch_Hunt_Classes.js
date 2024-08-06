@@ -1450,7 +1450,7 @@ AddSubClass("rogue", "shadow", {
     subclassfeature3: {
       name: "Umbral Weapon",
       source: [["EldritchHunt", 162]],
-      weaponProfs: [["firearm"]],
+      weaponProfs: [false, false, ["firearm"]],
       description: desc([
         "You learn to make an umbral weapon by wreathing a rifle in shadows with a grim ritual. You perform the ritual over the course of 1 hour, which can be done during a short rest or long rest. The rifle must be within your reach throughout the ritual, at the conclusion of which you touch the weapon and bond with it.",
         "Once you have bonded a rifle to yourself, you can't be disarmed of it unless you are incapacitated. If it is on the same plane of existence, you can summon the rifle (no action required) on your turn, causing it to teleport instantly to your hand. Your umbral weapon keeps its original properties with the following alterations when you use it: it doesn't have the Barrel property, it doesn’t require ammunition, and it doesn’t make sound when fired.",
