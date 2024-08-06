@@ -1547,14 +1547,25 @@ AddSubClass("warlock", "the void", {
   subname: "The Void",
   fullname: "The Void",
   source: [["EldritchHunt", 165]],
-	spellcastingExtra : ["feather fall", "gravity leap", "otherworldly gaze", "pressure cage", "astral barrage", "blink", "black tentacles", "resilient sphere", "telekinesis", "starfall"],
+  spellcastingExtra: [
+    "feather fall",
+    "gravity leap",
+    "otherworldly gaze",
+    "pressure cage",
+    "astral barrage",
+    "blink",
+    "black tentacles",
+    "resilient sphere",
+    "telekinesis",
+    "starfall",
+  ],
   features: {
     subclassfeature1: {
       name: "Fugite Omnis",
       source: [["EldritchHunt", 165]],
       description: desc([
-        "You gain the ability to hover a few inches off the ground. You can ascend and descend as part of your movement. You can’t hover more than a foot above the ground and fall if you are above that height. If you were to be knocked prone while hovering, you are instead made to stand on the ground."
-      ])
+        "You gain the ability to hover a few inches off the ground. You can ascend and descend as part of your movement. You can’t hover more than a foot above the ground and fall if you are above that height. If you were to be knocked prone while hovering, you are instead made to stand on the ground.",
+      ]),
     },
     "subclassfeature1.1": {
       name: "Voracious Void",
@@ -1571,28 +1582,28 @@ AddSubClass("warlock", "the void", {
         "This miniature black hole grows with you. When your pact magic increases in power, so does this feature:",
         "● At 3rd level in this class, when a creature enters the black hole's space for the first time on a turn or starts its turn there, it is restrained for the duration. A restrained creature can attempt to free itself by using an action to make an Athletics check against your spell save DC. On a success, the creature is no longer restrained by the black hole and is moved to the nearest unoccupied space outside the black hole.",
         "● At 5th level in this class, the domain of influence of the sphere increases to 10 feet and is considered difficult terrain for all creatures except for you. A creature reduced to 0 hit points while inside the black hole is annihilated, along with any nonmagical items it is wearing or carrying.",
-        "● At 9th level in this class, the damage increases to 2d6 and the sphere’s domain of influence to 20 feet. You can summon the black hole at any point that you can see, not just on the ground. If the sphere is in the air, creatures restrained by it hover inside the black hole."
-      ])
+        "● At 9th level in this class, the damage increases to 2d6 and the sphere’s domain of influence to 20 feet. You can summon the black hole at any point that you can see, not just on the ground. If the sphere is in the air, creatures restrained by it hover inside the black hole.",
+      ]),
     },
-    "subclassfeature6": {
+    subclassfeature6: {
       name: "Voracious Void",
       source: [["EldritchHunt", 166]],
       action: [["reaction", ""]],
       description: desc([
-        "At 6th level, when a creature you can see within 120 feet of you is targeted by a ranged attack, if your Voracious Void is active, you can use your reaction to divert the strike. If the attack passes through the miniature black hole or its domain of influence, you can make a ranged spell attack. If you roll higher than their attack roll, you deflect the trajectory and the target takes no damage. If you roll lower, you reduce the damage by 1d6 + your Charisma modifier. If you roll a 20, the attack is deflected and streaks towards the center of the black hole, randomly hitting one of the creatures inside, if any are present."
-      ])
+        "At 6th level, when a creature you can see within 120 feet of you is targeted by a ranged attack, if your Voracious Void is active, you can use your reaction to divert the strike. If the attack passes through the miniature black hole or its domain of influence, you can make a ranged spell attack. If you roll higher than their attack roll, you deflect the trajectory and the target takes no damage. If you roll lower, you reduce the damage by 1d6 + your Charisma modifier. If you roll a 20, the attack is deflected and streaks towards the center of the black hole, randomly hitting one of the creatures inside, if any are present.",
+      ]),
     },
-    "subclassfeature10": {
+    subclassfeature10: {
       name: "Warp Gravity",
       source: [["EldritchHunt", 166]],
       // speed: {
       //   fly : { spd : What("speed.walk.spd"), enc : What("speed.walk.spd") - 10 },
       // },
       description: desc([
-        "At 10th level, you can bend gravity around you at will, allowing you to move through the air as if you were walking on solid ground. You gain a flying speed equal to your walking speed and can hover. You can grant these benefits to one creature that is touching you. They lose this flying speed immediately if they are no longer in contact with you."
-      ])
+        "At 10th level, you can bend gravity around you at will, allowing you to move through the air as if you were walking on solid ground. You gain a flying speed equal to your walking speed and can hover. You can grant these benefits to one creature that is touching you. They lose this flying speed immediately if they are no longer in contact with you.",
+      ]),
     },
-    "subclassfeature14": {
+    subclassfeature14: {
       name: "Oblivion",
       source: [["EldritchHunt", 166]],
       usages: 1,
@@ -1600,8 +1611,68 @@ AddSubClass("warlock", "the void", {
       oncelr: true,
       description: desc([
         "At 14th level, you can unleash the ravenous hunger of the void. When you use your Voracious Void ability, you can choose to let it run wild. In that case, rather than as a bonus action, whenever a creature starts its turn within the black hole or its domain of influence, they must succeed on a Strength saving throw against your spell save DC or be pulled to the center. You and your choice of a number of creatures equal to your Charisma modifier (minimum 1) aren't affected by this effect.",
-        "Once you use this feature, you can’t do so again until you finish a long rest."
-      ])
-    }
-  }
-})
+        "Once you use this feature, you can’t do so again until you finish a long rest.",
+      ]),
+    },
+  },
+});
+
+AddSubClass("wizard", "osteomancer", {
+  regExpSearch: /^(?=.*wizard)(?=.*osteomancer).*$/i,
+  subname: "Osteomancer",
+  fullname: "Osteomancer",
+  source: [["EldritchHunt", 170]],
+  features: {
+    subclassfeature2: {
+      name: "Brittle Bone Armor",
+      source: [["EldritchHunt", 170]],
+      action: [["bonus action", ""]],
+      usages: 1,
+      recovery: "short rest",
+      oncesr: true,
+      description: desc([
+        "Starting at 2nd level, you learn the basics of osteomancy, using it for protection. As a bonus action, if you're not wearing armor or wielding a shield, you can force a frame of bones out of your body to protect you. This grants you temporary hit points equal to 2 times your level in this class.",
+        "This armor lasts for one minute, or until you lose the temporary hit points. While you have these temporary hit points, you gain resistance to slashing and piercing damage, and you gain a bonus to AC equal to one-third your level in this class (rounded down, minimum of 1). Once you've used this feature, you can't use it again until you finish a short or long rest.",
+      ]),
+    },
+    "subclassfeature2.1": {
+      name: "Anatomical Expert",
+      source: [["EldritchHunt", 171]],
+      skills: ["Medicine"],
+      description: desc([
+        "You gain proficiency in Medicine checks, and when you make a Medicine check, you gain a bonus to the check equal to your Intelligence modifier. In addition, when this check concerns a creature that possesses a skeleton, you add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
+      ]),
+    },
+    subclassfeature6: {
+      name: "Bone Puppetry",
+      source: [["EldritchHunt", 171]],
+      action: [["action", ""]],
+      usages: "Int mod",
+      usagescalc: "event.value = Math.max(1, 1 + What('Int Mod'))",
+      recovery: "long rest",
+      oncelr: true,
+      description: desc([
+        "Beginning at 6th level, as an action, you focus your grim magic towards a creature with bones within 60 feet of you. It must make a Strength saving throw against your spell save DC. On a failure, you take total and precise control of its skeleton. Until the end of the creature's next turn, it takes only the actions you choose and doesn't do anything that you don't allow it to do. In the creature’s efforts to resist your command, attack rolls it makes against its allies have disadvantage, and its allies have advantage on saving throws from effects caused by the creature.",
+        "You can only have one such creature under your control at a time. You can use this feature a number of times equal to your Intelligence modifier (a minimum of once), and you regain all expended uses when you finish a long rest.",
+      ]),
+    },
+    subclassfeature10: {
+      name: "Skeletal Mastery",
+      source: [["EldritchHunt", 171]],
+      action: [["action", "Dissolve Bones"], ["bonus action", "Regenerate hand bones"]],
+      spellcastingExtra: ["alter self"],
+      description: desc([
+        "You can cast alter self at will, without expending a spell slot or needing to concentrate on the spell. When you cast this spell using this feature, you can only use the Change Appearance or Natural Weapons options.",
+        "In addition, you also gain the ability to dissolve or restore your own skeleton as an action. While boneless, you can move yourself through sheer muscular and magical control. In this form, your speed becomes 10 feet, and you can move through a space as narrow as 5 inches without squeezing. Further, you are considered prone, cannot use your hands, and you can’t attack or cast spells. As a bonus action, you can regenerate the bones in your hands to exert finer control over them until the end of your next turn."
+      ]),
+    },
+    subclassfeature10: {
+      name: "Improved Bone Puppetry",
+      source: [["EldritchHunt", 171]],
+      description: desc([
+        "When a creature fails its saving throw against your Bone Puppetry feature, your control of the creature lasts for 1 minute instead. The creature can’t resist your command; it doesn’t suffer disadvantage on attacks against its allies, nor do they have advantage on saves against effects caused by the creature. The creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. You must concentrate on this feature as you would concentrate on a spell, and damage can't break your concentration.",
+        "Once under your control, when the creature repeats the saving throw against your Bone Puppetry, you can choose to expend one additional use of the feature to give the creature disadvantage on the save. You must decide to do so before seeing the result of the roll."
+      ]),
+    },
+  },
+});
