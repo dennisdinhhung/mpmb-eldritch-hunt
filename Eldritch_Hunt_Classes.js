@@ -1542,3 +1542,66 @@ AddSubClass("rogue", "shadow", {
   },
 });
 
+AddSubClass("warlock", "the void", {
+  regExpSearch: /^(?=.*warlock)(?=.*void).*$/i,
+  subname: "The Void",
+  fullname: "The Void",
+  source: [["EldritchHunt", 165]],
+	spellcastingExtra : ["feather fall", "gravity leap", "otherworldly gaze", "pressure cage", "astral barrage", "blink", "black tentacles", "resilient sphere", "telekinesis", "starfall"],
+  features: {
+    subclassfeature1: {
+      name: "Fugite Omnis",
+      source: [["EldritchHunt", 165]],
+      description: desc([
+        "You gain the ability to hover a few inches off the ground. You can ascend and descend as part of your movement. You can’t hover more than a foot above the ground and fall if you are above that height. If you were to be knocked prone while hovering, you are instead made to stand on the ground."
+      ])
+    },
+    "subclassfeature1.1": {
+      name: "Voracious Void",
+      source: [["EldritchHunt", 166]],
+      action: [["bonus action", ""]],
+      usages: 1,
+      recovery: "long rest",
+      oncelr: true,
+      description: desc([
+        "At 1st level, as a bonus action, you can create a miniature black hole, in the form of a 5-foot-diamater sphere, centered on a point on the ground that you can see within 60 feet. This black hole has a domain of influence of 5 feet beyond its own radius. It lasts for 1 minute or until your concentration is broken (as if you are concentrating on a spell). The black hole is considered difficult terrain for all creatures except for you.",
+        "When the sphere appears and at the start of each of your turns until the ability ends, unsecured objects within the domain of influence of the miniature black hole are pulled toward the sphere's center, ending in an unoccupied space as close to the center as possible.",
+        "As part of creating the sphere, and on subsequent turns as a bonus action, you can choose a creature within the domain of influence of the black hole, increasing the pull of gravity around them. They must succeed on a Strength saving throw against your spell save DC or be pulled straight toward the sphere's center, ending in an unoccupied space as close to the center as possible. A creature that enters the black hole’s space for the first time on a turn or starts its turn there takes 1d6 magical bludgeoning damage and its speed is halved until the start of its next turn.",
+        "Once you use this feature, you can’t use it again until you finish a long rest, unless you expend a warlock spell slot to use it again.",
+        "This miniature black hole grows with you. When your pact magic increases in power, so does this feature:",
+        "● At 3rd level in this class, when a creature enters the black hole's space for the first time on a turn or starts its turn there, it is restrained for the duration. A restrained creature can attempt to free itself by using an action to make an Athletics check against your spell save DC. On a success, the creature is no longer restrained by the black hole and is moved to the nearest unoccupied space outside the black hole.",
+        "● At 5th level in this class, the domain of influence of the sphere increases to 10 feet and is considered difficult terrain for all creatures except for you. A creature reduced to 0 hit points while inside the black hole is annihilated, along with any nonmagical items it is wearing or carrying.",
+        "● At 9th level in this class, the damage increases to 2d6 and the sphere’s domain of influence to 20 feet. You can summon the black hole at any point that you can see, not just on the ground. If the sphere is in the air, creatures restrained by it hover inside the black hole."
+      ])
+    },
+    "subclassfeature6": {
+      name: "Voracious Void",
+      source: [["EldritchHunt", 166]],
+      action: [["reaction", ""]],
+      description: desc([
+        "At 6th level, when a creature you can see within 120 feet of you is targeted by a ranged attack, if your Voracious Void is active, you can use your reaction to divert the strike. If the attack passes through the miniature black hole or its domain of influence, you can make a ranged spell attack. If you roll higher than their attack roll, you deflect the trajectory and the target takes no damage. If you roll lower, you reduce the damage by 1d6 + your Charisma modifier. If you roll a 20, the attack is deflected and streaks towards the center of the black hole, randomly hitting one of the creatures inside, if any are present."
+      ])
+    },
+    "subclassfeature10": {
+      name: "Warp Gravity",
+      source: [["EldritchHunt", 166]],
+      // speed: {
+      //   fly : { spd : What("speed.walk.spd"), enc : What("speed.walk.spd") - 10 },
+      // },
+      description: desc([
+        "At 10th level, you can bend gravity around you at will, allowing you to move through the air as if you were walking on solid ground. You gain a flying speed equal to your walking speed and can hover. You can grant these benefits to one creature that is touching you. They lose this flying speed immediately if they are no longer in contact with you."
+      ])
+    },
+    "subclassfeature14": {
+      name: "Oblivion",
+      source: [["EldritchHunt", 166]],
+      usages: 1,
+      recovery: "long rest",
+      oncelr: true,
+      description: desc([
+        "At 14th level, you can unleash the ravenous hunger of the void. When you use your Voracious Void ability, you can choose to let it run wild. In that case, rather than as a bonus action, whenever a creature starts its turn within the black hole or its domain of influence, they must succeed on a Strength saving throw against your spell save DC or be pulled to the center. You and your choice of a number of creatures equal to your Charisma modifier (minimum 1) aren't affected by this effect.",
+        "Once you use this feature, you can’t do so again until you finish a long rest."
+      ])
+    }
+  }
+})
