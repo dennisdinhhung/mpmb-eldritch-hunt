@@ -610,7 +610,13 @@ AddSubClass("bard", "college of the apocalypse", {
       source: [["EldritchHunt", 133]],
       minlevel: 6,
       //TODO: might need custom spells to add this in
-      spellcastingExtra: ["divine order: transcend"],
+      // spellcastingExtra: ["divine order: transcend"],
+      // spellcastingBonus : {
+      //   name : "Drow Magic (level 1)",
+      //   spells : ["dancing lights"],
+      //   selection : ["dancing lights"],
+      //   firstCol : "atwill"
+      // },
       description:
         "Starting at 14th level, you learn the spell divine order: transcend. It doesn't count against the number of spells you know. You can also cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest. When you cast the spell in this way, the apocalypse flows through you; damage can't break your concentration on this spell, and you automatically succeed on the saving throws to keep control over the spell.",
     },
@@ -1218,7 +1224,12 @@ AddSubClass("ranger", "lunar warden", {
       name: "Astral Affinity",
       source: [["EldritchHunt", 152]],
       minLevel: 3,
-      spellcastingExtra: ["light"],
+      spellcastingBonus : {
+        name : "Astral Affinity",
+        spells : ["light"],
+        selection : ["light"],
+        firstCol : 'atwill'
+      },
       savetxt: {
         adv_vs: ["direct effects from Eldritch Moons"],
       },
@@ -1660,7 +1671,12 @@ AddSubClass("wizard", "osteomancer", {
       name: "Skeletal Mastery",
       source: [["EldritchHunt", 171]],
       action: [["action", "Dissolve Bones"], ["bonus action", "Regenerate hand bones"]],
-      spellcastingExtra: ["alter self"],
+      spellcastingBonus : {
+        name : "Skeletal Mastery",
+        spells : ["alter self"],
+        selection : ["alter self"],
+        firstCol : 'atwill'
+      },
       description: desc([
         "You can cast alter self at will, without expending a spell slot or needing to concentrate on the spell. When you cast this spell using this feature, you can only use the Change Appearance or Natural Weapons options.",
         "In addition, you also gain the ability to dissolve or restore your own skeleton as an action. While boneless, you can move yourself through sheer muscular and magical control. In this form, your speed becomes 10 feet, and you can move through a space as narrow as 5 inches without squeezing. Further, you are considered prone, cannot use your hands, and you can’t attack or cast spells. As a bonus action, you can regenerate the bones in your hands to exert finer control over them until the end of your next turn."

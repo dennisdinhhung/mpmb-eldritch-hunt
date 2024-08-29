@@ -961,8 +961,10 @@ RaceList["aranea scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-          fields.Description =
-            (fields.Description ? "; " : "") + "Piercing (d8)"; //! check this out again
+            fields.Damage_Type = "Piercing"
+          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+            fields.Damage_Die = "1d8";
+          }
         }
       },
       "My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I'm Evil aligned",
@@ -1031,8 +1033,10 @@ RaceList["belua scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-          fields.Description =
-            (fields.Description ? "; " : "") + "Piercing (d8)"; //! check this out again
+            fields.Damage_Type = "Piercing"
+          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+            fields.Damage_Die = "1d8";
+          }
         }
       },
       "My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I'm Evil aligned",
@@ -1114,8 +1118,10 @@ RaceList["cervus scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-          fields.Description =
-            (fields.Description ? "; " : "") + "Piercing (d8)"; //! check this out again
+            fields.Damage_Type = "Piercing"
+          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+            fields.Damage_Die = "1d8";
+          }
         }
       },
       "My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I'm Evil aligned",
@@ -1197,8 +1203,10 @@ RaceList["vespertilio scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-          fields.Description =
-            (fields.Description ? "; " : "") + "Piercing (d8)"; //! check this out again
+            fields.Damage_Type = "Piercing"
+          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+            fields.Damage_Die = "1d8";
+          }
         }
       },
       "My unarmed strikes deal 1d6 damage instead of 1, which increases to 1d8 if I'm Evil aligned",
