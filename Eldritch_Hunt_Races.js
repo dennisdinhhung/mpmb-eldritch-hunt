@@ -629,7 +629,7 @@ RaceList["custodian manikin"] = {
   regExpSearch: /^(?=.*custodian)(?=.*manikin).*$/i,
   name: "Custodian Manikin",
   sortname: "Manikin, Custodian",
-  source: [["EldritchHunt", 96]],
+  source: [["EldritchHunt", 105]],
   plural: "Custodian Manikins",
   size: 3,
   speed: {
@@ -644,6 +644,36 @@ RaceList["custodian manikin"] = {
     immune: ["poison"], //part of Living Material
     adv_vs: ["madness"], //part of Living Material
   },
+  armorOptions : [
+    {
+		regExpSearch : /^(?=.*unarmoured)(?=.*manikin).*$/i,
+		name : "Unarmored (Manikin)",
+    source: [["EldritchHunt", 106]],
+		ac : 11,
+	  },
+    {
+      regExpSearch : /^(?=.*medium)(?=.*dex)(?=.*manikin).*$/i,
+      name : "Medium Armored (Dex) (Manikin)",
+      source: [["EldritchHunt", 106]],
+      ac : 13,
+      type : "medium",
+    },
+    {
+      regExpSearch : /^(?=.*medium)(?=.*str)(?=.*manikin).*$/i,
+      name : "Medium Armored (Str) (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis : true,
+      ac : 13 + min(Str|3),
+      type : "medium",
+    },
+    {
+      regExpSearch : /^(?=.*heavy)(?=.*manikin).*$/i,
+      name : "Heavy Armored (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis : true,
+      ac : 16 + min(Str|2),
+    },
+  ],
   features: {
     born_to_serve: {
       name: "Born to Serve",
