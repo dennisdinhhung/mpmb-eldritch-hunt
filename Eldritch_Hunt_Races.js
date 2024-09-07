@@ -733,6 +733,8 @@ RaceList["custodian manikin"] = {
       name: "Careful Defender",
       source: [["EldritchHunt", 106]],
       minlevel: 1,
+			usages : "Proficiency bonus per ",
+			usagescalc : "event.value = How('Proficiency Bonus');",
       action: [["reaction", ""]],
       recovery: "long rest",
       oncelr: true,
@@ -787,6 +789,39 @@ RaceList["handler manikin"] = {
     immune: ["poison"], //part of Living Material
     adv_vs: ["madness"], //part of Living Material
   },
+  armorOptions: [
+    {
+      regExpSearch: /^(?=.*unarmor)(?=.*manikin).*$/i,
+      name: "Unarmor (Manikin)",
+      source: [["EldritchHunt", 106]],
+      ac: 11,
+      selectNow: true
+    },
+    {
+      regExpSearch: /^(?=.*medium)(?=.*dex)(?=.*manikin).*$/i,
+      name: "Medium Armored (Dex) (Manikin)",
+      source: [["EldritchHunt", 106]],
+      ac: 13,
+      type: "medium",
+    },
+    {
+      regExpSearch: /^(?=.*medium)(?=.*str)(?=.*manikin).*$/i,
+      name: "Medium Armored (Str) (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis: true,
+      ac: "13 + min(Str|3)",
+      dex: 0,
+      type: "medium",
+    },
+    {
+      regExpSearch: /^(?=.*heavy)(?=.*manikin).*$/i,
+      name: "Heavy Armored (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis: true,
+      ac: "16 + min(Str|2)",
+      type: "heavy",
+    },
+  ],
   features: {
     born_to_serve: {
       name: "Born to Serve",
@@ -889,6 +924,39 @@ RaceList["thespian manikin"] = {
     immune: ["poison"], //part of Living Material
     adv_vs: ["madness"], //part of Living Material
   },
+  armorOptions: [
+    {
+      regExpSearch: /^(?=.*unarmor)(?=.*manikin).*$/i,
+      name: "Unarmor (Manikin)",
+      source: [["EldritchHunt", 106]],
+      ac: 11,
+      selectNow: true
+    },
+    {
+      regExpSearch: /^(?=.*medium)(?=.*dex)(?=.*manikin).*$/i,
+      name: "Medium Armored (Dex) (Manikin)",
+      source: [["EldritchHunt", 106]],
+      ac: 13,
+      type: "medium",
+    },
+    {
+      regExpSearch: /^(?=.*medium)(?=.*str)(?=.*manikin).*$/i,
+      name: "Medium Armored (Str) (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis: true,
+      ac: "13 + min(Str|3)",
+      dex: 0,
+      type: "medium",
+    },
+    {
+      regExpSearch: /^(?=.*heavy)(?=.*manikin).*$/i,
+      name: "Heavy Armored (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis: true,
+      ac: "16 + min(Str|2)",
+      type: "heavy",
+    },
+  ],
   features: {
     born_to_serve: {
       name: "Born to Serve",
