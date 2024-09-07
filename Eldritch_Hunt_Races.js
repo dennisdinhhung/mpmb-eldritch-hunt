@@ -644,34 +644,37 @@ RaceList["custodian manikin"] = {
     immune: ["poison"], //part of Living Material
     adv_vs: ["madness"], //part of Living Material
   },
-  armorOptions : [
+  armorOptions: [
     {
-		regExpSearch : /^(?=.*unarmoured)(?=.*manikin).*$/i,
-		name : "Unarmored (Manikin)",
-    source: [["EldritchHunt", 106]],
-		ac : 11,
-	  },
-    {
-      regExpSearch : /^(?=.*medium)(?=.*dex)(?=.*manikin).*$/i,
-      name : "Medium Armored (Dex) (Manikin)",
+      regExpSearch: /^(?=.*natural)(?=.*manikin).*$/i,
+      name: "Unarmor (Manikin)",
       source: [["EldritchHunt", 106]],
-      ac : 13,
-      type : "medium",
+      ac: 11,
+      selectNow: true
     },
     {
-      regExpSearch : /^(?=.*medium)(?=.*str)(?=.*manikin).*$/i,
-      name : "Medium Armored (Str) (Manikin)",
+      regExpSearch: /^(?=.*medium)(?=.*dex)(?=.*manikin).*$/i,
+      name: "Medium Armored (Dex) (Manikin)",
       source: [["EldritchHunt", 106]],
-      stealthdis : true,
-      ac : 13 + min(Str|3),
-      type : "medium",
+      ac: 13,
+      type: "medium",
     },
     {
-      regExpSearch : /^(?=.*heavy)(?=.*manikin).*$/i,
-      name : "Heavy Armored (Manikin)",
+      regExpSearch: /^(?=.*medium)(?=.*str)(?=.*manikin).*$/i,
+      name: "Medium Armored (Str) (Manikin)",
       source: [["EldritchHunt", 106]],
-      stealthdis : true,
-      ac : 16 + min(Str|2),
+      stealthdis: true,
+      ac: "13 + min(Str|3)",
+      dex: 0,
+      type: "medium",
+    },
+    {
+      regExpSearch: /^(?=.*heavy)(?=.*manikin).*$/i,
+      name: "Heavy Armored (Manikin)",
+      source: [["EldritchHunt", 106]],
+      stealthdis: true,
+      ac: "16 + min(Str|2)",
+      type: "heavy",
     },
   ],
   features: {
@@ -991,8 +994,8 @@ RaceList["aranea scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-            fields.Damage_Type = "Piercing"
-          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+          fields.Damage_Type = "Piercing";
+          if (/^(?=.*evil).*$/i.test(What("Alignment"))) {
             fields.Damage_Die = "1d8";
           }
         }
@@ -1063,8 +1066,8 @@ RaceList["belua scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-            fields.Damage_Type = "Piercing"
-          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+          fields.Damage_Type = "Piercing";
+          if (/^(?=.*evil).*$/i.test(What("Alignment"))) {
             fields.Damage_Die = "1d8";
           }
         }
@@ -1148,8 +1151,8 @@ RaceList["cervus scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-            fields.Damage_Type = "Piercing"
-          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+          fields.Damage_Type = "Piercing";
+          if (/^(?=.*evil).*$/i.test(What("Alignment"))) {
             fields.Damage_Die = "1d8";
           }
         }
@@ -1233,8 +1236,8 @@ RaceList["vespertilio scourgeborne"] = {
         if (v.baseWeaponName == "unarmed strike") {
           if (fields.Damage_Die == 1 || fields.Damage_Die == "1d4")
             fields.Damage_Die = "1d6";
-            fields.Damage_Type = "Piercing"
-          if ((/^(?=.*evil).*$/i).test(What("Alignment"))){
+          fields.Damage_Type = "Piercing";
+          if (/^(?=.*evil).*$/i.test(What("Alignment"))) {
             fields.Damage_Die = "1d8";
           }
         }
