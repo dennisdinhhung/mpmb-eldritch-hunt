@@ -646,7 +646,7 @@ RaceList["custodian manikin"] = {
   },
   armorOptions: [
     {
-      regExpSearch: /^(?=.*natural)(?=.*manikin).*$/i,
+      regExpSearch: /^(?=.*unarmor)(?=.*manikin).*$/i,
       name: "Unarmor (Manikin)",
       source: [["EldritchHunt", 106]],
       ac: 11,
