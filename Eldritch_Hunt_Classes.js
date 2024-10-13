@@ -6,8 +6,8 @@ RequiredSheetVersion("13.1.12");
 
 SourceList["EldritchHunt"] = {
   name: "Steinhardt's Guide to the Eldritch Hunt",
-  abbreviation: "SGttEldHunt",
-  abbreviationSpellsheet: "SGttEldHunt",
+  abbreviation: "SGttEH",
+  abbreviationSpellsheet: "SGttEH",
   group: "3rd Party Campaign Sourcebooks",
   date: "2024/07/01",
 };
@@ -981,10 +981,10 @@ AddSubClass("fighter", "living nightmare", {
       armorOptions: [
         {
           regExpSearch:
-            /^(?=.*(awake|awoke|awaken))(?=.*(mutation|mutate)).*$/i,
+            /^(?=.*(awake|awoke|awakened))(?=.*(mutation|mutate)).*$/i,
           name: "Awakened Mutation",
           source: [["EldritchHunt", 142]],
-          ac: 13 + What("Con mod"),
+          ac: "11+Con",
           selectNow: true,
         },
       ],
