@@ -255,15 +255,15 @@ AddWarlockInvocation(
 //Path of the Earthbreaker
 AddSubClass("barbarian", "path of the earthbreaker", {
   regExpSearch:
-    /^(?=.*\bearthbreaker\b)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
+    /^(?=.*earthbreaker)(?=.*(warrior|marauder|barbarian|viking|(norse|tribes?|clans?)(wo)?m(a|e)n)).*$/i,
   subname: "Path of the Earthbreaker",
   source: [["EldritchHunt", 128]],
   abilitySave: 1, //Strength save DC (from Gravitational Rage)
   features: {
-    "earthbreaker3.1": {
+    "subclassfeature3.1": {
       name: "Overwhelming Power",
       source: [["EldritchHunt", 128]],
-      minLevel: 3,
+      minlevel: 3,
       description: desc([
         "Starting at 3rd level, you have learned to channel destructive energy through your fists and other body parts.\nWhen you hit with an unarmed strike, you can deal bludgeoning damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.\nThis die increases to 1d8 at 6th level, 1d10 at 10th level, and 1d12 at 14th level.\nWhen you make an unarmed strike against a creature on your turn, you can use a bonus action to make another unarmed strike against the same creature.",
         "Your sheer power puts a massive strain on most weapons, shattering them.\nWhen you hit with a melee attack with a nonmagical weapon, the weapon breaks in your hand and can’t be used to make attacks until it is repaired.\nIn addition, the range of thrown weapons is doubled for you.\nIf you hit with a ranged attack with a thrown weapon, you can use the damage die above in place of the weapon’s usual damage dice.",
@@ -290,29 +290,29 @@ AddSubClass("barbarian", "path of the earthbreaker", {
         ],
       },
     },
-    "earthbreaker3.2": {
+    "subclassfeature3.2": {
       name: "Gravitational Rage",
       source: [["EldritchHunt", 128]],
-      minLevel: 3,
+      minlevel: 3,
       description: desc([
         "At 3rd level, once per turn, when you deal damage to a creature with an unarmed strike, you can choose one of the following effects. These effects use your Earthbreaker save DC.",
         "• Burying Hands. The target must succeed on a Strength saving throw or have its speed reduced to 0 until the start of your next turn, as you partially bury it in the ground. If the target fails the saving throw by 5 or more, it is also knocked prone. If the target isn’t on the ground when it fails this save, it immediately falls instead, even if it can hover.",
         "• Bulldozing Punch. You push the target 10 feet away from you or upward. If pushed into an obstacle or another creature, the target takes bludgeoning damage equal to your Strength modifier (minimum of 1). Creatures with a Strength score equal to or greater than yours can make a Strength saving throw to resist this effect, avoiding it on a success. If you push the target upward, it can make a DC 10 Dexterity saving throw, avoiding any fall damage on a success.",
       ]),
     },
-    "earthbreaker6.1": {
+    "subclassfeature6.1": {
       name: "Ruination",
       source: [["EldritchHunt", 129]],
-      minLevel: 3,
+      minlevel: 6,
       description: desc([
         "Starting at 6th level, the strength you wield is capable of toppling the arcane rules of the world. Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity.",
         "In addition, when you hit a physical barrier created by a spell with an unarmed strike, such as the effect of a wall of force or forcecage spell, or any other wall spell (such as wall of fire, gravity wall󨖙, or prismatic wall), you can make a Strength check (DC = 10 + the spell’s level), rupturing the arcane and dispelling the spell on a success.",
       ]),
     },
-    "earthbreaker6.2": {
+    "subclassfeature6.2": {
       name: "Imperious Gravity",
       source: [["EldritchHunt", 129]],
-      minLevel: 3,
+      minlevel: 6,
       description: desc([
         "Also at 6th level, you increase your mastery over gravity. On each of your turns while raging, you can use a bonus action to create one of the following effects, using your Earthbreaker save DC. The range of these abilities, and the distance they move creatures, doubles at 14th level",
         "• Attractive Field. You unleash a gravitational wave. Each creature in a 15-foot cone originating from you must succeed on a Strength saving throw or be pulled up to 10 feet towards you.",
@@ -320,19 +320,19 @@ AddSubClass("barbarian", "path of the earthbreaker", {
         "• Stomp. You stomp the ground, causing a destructive quake in a 10-foot-long, 5-foot-wide line on the ground originating from you. Each creature in the area must succeed on a Dexterity saving throw or take 1d4 bludgeoning damage and have disadvantage on its next Strength saving throw before the start of your next turn as it is thrown off balance. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.",
       ]),
     },
-    earthbreaker10: {
+    subclassfeature10: {
       name: "Unyielding",
       source: [["EldritchHunt", 129]],
-      minLevel: 3,
+      minlevel: 10,
       description: desc([
         "Beginning at 10th level, your unarmed strikes deal double damage to structures and you can ignore difficult terrain.",
         "In addition, your crushing power seeps into all the aspects of your life. You can add your Constitution modifier to any Strength checks and Intimidation checks you make.",
       ]),
     },
-    earthbreaker14: {
-      name: "Unyielding",
+    subclassfeature14: {
+      name: "World Breaker",
       source: [["EldritchHunt", 129]],
-      minLevel: 3,
+      minlevel: 14,
       usages: "Str Mod",
       usagescalc: "event.value = What('Str Mod')",
       recovery: "short rest",
@@ -356,7 +356,7 @@ AddSubClass("barbarian", "path of the lightning vessel", {
     lightningvessel3: {
       name: "Overwhelming Power",
       source: [["EldritchHunt", 128]],
-      minLevel: 3,
+      minlevel: 3,
       dmgres: ["Lightning", "Lightning; if existed, reduce by another 1d6"],
       description: desc([
         "While raging, you can unleash the lightning within. For the duration of your rage, you can use your bonus action to unleash various powers.",
@@ -368,7 +368,7 @@ AddSubClass("barbarian", "path of the lightning vessel", {
     lightningvessel6: {
       name: "Roaring Crash",
       source: [["EldritchHunt", 131]],
-      minLevel: 6,
+      minlevel: 6,
       description: desc([
         "At 6th level, you are ready to leap into battle at a moment’s notice, crashing down on your foes like thunder from the heavens. As part of entering your rage, you can leap into the air, before crashing down on a point on the ground that you can see within 30 feet of you that isn't occupied by a Huge or larger creature. All creatures in a 10-foot radius centered on that point must succeed on a Dexterity saving throw against your Vessel save DC or take a number of d8s of lightning damage equal to your Constitution modifier (minimum of 1d8), or half as much damage on a success.",
         "If a creature is in the space on which you land, they have disadvantage on the saving throw and are pushed 5 feet out of your space into an unoccupied space of their choice. If no unoccupied space is within range, the creature instead falls prone in your space.",
@@ -378,16 +378,16 @@ AddSubClass("barbarian", "path of the lightning vessel", {
     lightningvessel10: {
       name: "Lightning Reflexes",
       source: [["EldritchHunt", 131]],
-      minLevel: 10,
+      minlevel: 10,
       description: desc([
         "At 10th level, the lightning you wield enhances your reflexes past what your body could normally handle. As a result, whenever you make a Dexterity check, you gain a bonus to the check equal to your Constitution modifier (minimum of +1).",
         "In addition, while raging, you can use Lightning Step once on each of your turn without using a bonus action.",
       ]),
     },
-    earthbreaker14: {
+    lightningvessel14: {
       name: "Electric Beast",
       source: [["EldritchHunt", 131]],
-      minLevel: 14,
+      minlevel: 14,
       description: desc([
         "The damage from your Galvanic Heart’s abilities increases to three times your Constitution modifier, and they improve in the following way:",
         "• Electrified Chains. The creature cannot move more than 5 feet without attempting the check, and on a failure, they can’t take reactions until the start of your next turn.",
@@ -480,7 +480,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "You channel the name of the lost city of the Great Ones, warping reality. Each creature within 30 feet of you must succeed on a Strength saving throw or be pushed up to 10 feet in a direction of your choice and knocked prone.",
           "The number of feet up to which a creature is pushed increases to 20 feet at 6th level and 30 feet at 14th level.",
         ]),
-        minLevel: 3,
+        minlevel: 3,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "concord of the depths (prereq: 3rd level)": {
@@ -490,7 +490,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "Choose one creature within 60 feet of you. It must succeed on a Wisdom saving throw or become incapacitated and have its speed reduced to 0 for 1 minute, until it takes damage, or until someone uses an action to shake or slap it out of its stupor.",
           "Starting at 6th level, you can target two creatures, and at 14th level, you can target a number of creatures equal to your Charisma modifier (minimum of three).",
         ]),
-        minLevel: 3,
+        minlevel: 3,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "epode for whom the bell tolls (prereq: 3rd level)": {
@@ -500,7 +500,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "Choose up to five creatures within 30 feet of you. Each creature gains a bonus to their attack and damage rolls equal to half your Charisma modifier (rounded up) for 2 rounds, ending at the end of your subsequent turn.",
           "Starting at 6th level, the bonus to damage rolls equals your Charisma modifier, and at 14th level, the bonus to both attack and damage rolls becomes equal to your Charisma modifier.",
         ]),
-        minLevel: 3,
+        minlevel: 3,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "transcendence of flesh (prereq: 3rd level)": {
@@ -509,7 +509,7 @@ AddSubClass("bard", "college of the apocalypse", {
         description: desc([
           "Each willing creature of your choice within 30 feet of you gains temporary hit points equal to half your bard level + your Charisma modifier, as tentacles sprout from its mouth, eyes, and ears, defending them without impeding their abilities. In addition, they have advantage on Strength checks and Strength saving throws until the end of your next turn.",
         ]),
-        minLevel: 3,
+        minlevel: 3,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "aria of the reviled stalker (prereq: 6th level)": {
@@ -519,7 +519,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "Choose one creature within 30 feet of you. It is partially absorbed by the cosmos for 1 hour, gaining a +10 bonus to Stealth checks and becoming unable to be tracked except by magical means. In addition, as an action, the creature can become incorporeal and move through other creatures and objects as if they were difficult terrain until the end of its turn. If it ends its turn inside an object, it takes 5 (1d10) force damage and is immediately shunted to the nearest unoccupied space. Once the creature uses this action, it can’t do so again for the duration of the transformation.",
           "Starting at 14th level, when the creature uses an action to become incorporeal, the effect lasts for 10 minutes instead.",
         ]),
-        minLevel: 6,
+        minlevel: 6,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "ode to subjugation (prereq: 6th level)": {
@@ -529,7 +529,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "Each creature of your choice that you can see within 30 feet of you must make a Dexterity saving throw, becoming restrained for 1 minute on a failed save. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
           "Starting at 14th level, a restrained creature takes 3d6 necrotic damage at the start of each of its turns.",
         ]),
-        minLevel: 6,
+        minlevel: 6,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "requiem of chaos (prereq: 6th level)": {
@@ -539,7 +539,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "Choose up to two creatures within 60 feet of you. They have disadvantage on Wisdom checks and Wisdom saving throws until the end of your next turn.",
           "Starting at 14th level, you can target a number of creatures equal to your Charisma modifier (minimum of 3).",
         ]),
-        minLevel: 6,
+        minlevel: 6,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "song of abject birth (prereq: 6th level)": {
@@ -549,7 +549,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "Each creature in a 30- foot cone originating from you must make a Dexterity saving throw, taking a number of d4s of necrotic damage equal to your level in this class on a failed save, or half as much damage on a successful one.",
           "Starting at 14th level, the cone’s size increases to 60 feet.",
         ]),
-        minLevel: 6,
+        minlevel: 6,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "assonance of dreams (prereq: 14th level)": {
@@ -559,7 +559,7 @@ AddSubClass("bard", "college of the apocalypse", {
           "You conjure a circular portal up to 20 feet in diameter linking an unoccupied space you can see within 10 feet of you to a precise location you are very familiar with within 1 mile of you on the same plane of existence as you. You can orient the portal in any direction you choose. The portal lasts for 1 minute. Anything that travels through the portal is instantly transported to the location you chose, appearing in an unoccupied space nearest to the location.",
           "Starting at 14th level, the cone’s size increases to 60 feet.",
         ]),
-        minLevel: 14,
+        minlevel: 14,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "euphony of self-destruction (prereq: 14th level)": {
@@ -568,7 +568,7 @@ AddSubClass("bard", "college of the apocalypse", {
         description: desc([
           "Choose one creature you can see within 60 feet of you. It must succeed on a Charisma saving throw or be drawn through it to an unknown destination. At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target isn’t an aberration, it takes 5d12 psychic damage and must succeed on a Wisdom saving throw or gain a long-term madness.",
         ]),
-        minLevel: 14,
+        minlevel: 14,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "nightmare of the abyss (prereq: 14th level)": {
@@ -577,7 +577,7 @@ AddSubClass("bard", "college of the apocalypse", {
         description: desc([
           "Each creature of your choice within 60 feet of you must succeed on a Wisdom saving throw or be stunned until the end of your next turn.",
         ]),
-        minLevel: 14,
+        minlevel: 14,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
       "whispers of the flesh-defiler (prereq: 14th level)": {
@@ -586,7 +586,7 @@ AddSubClass("bard", "college of the apocalypse", {
         description: desc([
           "For 1 minute, a 30-foot-radius sphere of writhing worms appears at a point that you can see within 60 feet of you. When a creature enters the area for the first time on a turn or starts its turn there, it is devoured by it and must make a Constitution saving throw. It takes 5d6 necrotic damage and is poisoned for 1 minute on a failed save, or half as much damage and isn’t poisoned on a successful one. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. On each of your turns after you summon the swarm, you can use a bonus action to move it up to 30 feet in any direction. This effect ends early if you take fire or radiant damage.",
         ]),
-        minLevel: 14,
+        minlevel: 14,
         // prereqeval : function(v) { return classes.known.bard.level >= 3; },
       },
     },
@@ -1077,7 +1077,7 @@ AddSubClass("monk", "way of the fire dancer", {
     subclassfeature3: {
       name: "Blazing Performer",
       source: [["EldritchHunt", 147]],
-      minLevel: 3,
+      minlevel: 3,
       skillstxt:
         "Choose one of Performance or Acrobatics, your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency.",
       dmgres: ["Fire", "Fire; if existed, reduce another 1d6"],
@@ -1089,7 +1089,7 @@ AddSubClass("monk", "way of the fire dancer", {
     "subclassfeature3.1": {
       name: "Dance of Fire",
       source: [["EldritchHunt", 147]],
-      minLevel: 3,
+      minlevel: 3,
       action: [["reaction", ""]],
       description: desc([
         "When you spend a ki point during your turn, your monk weapons and unarmed strikes catch fire until the start of your next turn. While on fire, they deal extra fire damage equal to your Wisdom modifier, and you gain a bonus to your AC equal to half your Wisdom modifier for the duration.",
@@ -1099,7 +1099,7 @@ AddSubClass("monk", "way of the fire dancer", {
     subclassfeature6: {
       name: "Scorching Vortex",
       source: [["EldritchHunt", 147]],
-      minLevel: 6,
+      minlevel: 6,
       usages: "Wis Mod",
       usagescalc: "event.value = Math.max(1, 1 + What('Wis Mod'))",
       action: [
@@ -1114,7 +1114,7 @@ AddSubClass("monk", "way of the fire dancer", {
     subclassfeature11: {
       name: "Flames of Redemption",
       source: [["EldritchHunt", 147]],
-      minLevel: 11,
+      minlevel: 11,
       description: desc([
         "At 11th level, any fire damage that you deal ignores fire resistance. In addition, the clarity of your mind allows you to generate flames that many would call divine; you can replace any fire damage that you deal with radiant damage.",
       ]),
@@ -1122,7 +1122,7 @@ AddSubClass("monk", "way of the fire dancer", {
     "subclassfeature11.1": {
       name: "Purifying Flames",
       source: [["EldritchHunt", 147]],
-      minLevel: 11,
+      minlevel: 11,
       action: [["action", ""]],
       description: desc([
         "At 11th level, your flames burn away all impurities. As an action, you can spend 2 ki points to touch a creature and infuse them with your flames. The target can end one poison, charm, or short-term madness afflicting it.",
@@ -1131,7 +1131,7 @@ AddSubClass("monk", "way of the fire dancer", {
     subclassfeature17: {
       name: "One With The Fire",
       source: [["EldritchHunt", 147]],
-      minLevel: 17,
+      minlevel: 17,
       description: desc([
         "When you deal fire damage with a monk weapon, if the target is a creature or a flammable object, it ignites. Until the target or a creature within 5 feet of it takes an action to douse the flames, the target takes fire damage equal to your Wisdom modifier at the start of each of its turns.",
         "In addition, while under the effects of Dance of Fire, your body merges with the flames. For the duration, you become immune to fire damage and have resistance to bludgeoning, piercing, and slashing damage.",
@@ -1181,7 +1181,7 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
     subclassfeature7: {
       name: "Sharpened Senses",
       source: [["EldritchHunt", 150]],
-      minLevel: 7,
+      minlevel: 7,
       description: desc([
         "You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, within that range, no creature can hide from you.",
         "At 18th level, this range increases to 30 feet.",
@@ -1190,7 +1190,7 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
     subclassfeature15: {
       name: "Find Weakness",
       source: [["EldritchHunt", 150]],
-      minLevel: 15,
+      minlevel: 15,
       description: desc([
         "When you deal damage to a creature, you learn any damage resistances, immunities, or vulnerabilities that it has.",
         "In addition, whenever you use your Hunt the Prey channel divinity, you can make a single weapon attack against the marked target when you reappear, as part of the same bonus action.",
@@ -1199,7 +1199,7 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
     subclassfeature20: {
       name: "Perfect Hunter",
       source: [["EldritchHunt", 150]],
-      minLevel: 20,
+      minlevel: 20,
       action: ["bonus action", ""],
       recovery: "long rest",
       oncelr: true,
@@ -1223,7 +1223,7 @@ AddSubClass("ranger", "lunar warden", {
     subclasfeature3: {
       name: "Astral Affinity",
       source: [["EldritchHunt", 152]],
-      minLevel: 3,
+      minlevel: 3,
       spellcastingBonus : {
         name : "Astral Affinity",
         spells : ["light"],
@@ -1238,7 +1238,7 @@ AddSubClass("ranger", "lunar warden", {
     "subclassfeature3.1": {
       name: "Moon Conduit",
       source: [["EldritchHunt", 153]],
-      minLevel: 3,
+      minlevel: 3,
       recovery: levels.map(function (n) {
         return n < 7 ? "long rest" : "short rest"; //turn to short rest at level 7 due to Moon Conduit
       }),
@@ -1260,7 +1260,7 @@ AddSubClass("ranger", "lunar warden", {
     subclassfeature7: {
       name: "Lunar Guidance",
       source: [["EldritchHunt", 153]],
-      minLevel: 7,
+      minlevel: 7,
       dmgres: [
         "Radiant",
         "Radiant; if existed, choose Cold of Necrotic resistance",
@@ -1272,7 +1272,7 @@ AddSubClass("ranger", "lunar warden", {
     subclassfeature11: {
       name: "Additional Moon Conduits",
       source: [["EldritchHunt", 154]],
-      minLevel: 11,
+      minlevel: 11,
       description: desc([
         "You learn to use new Moon Conduits that channel the powers of Eldritch Moons oft unseen.",
         "\n\nList of Additional Moon Conduits:",
@@ -1286,7 +1286,7 @@ AddSubClass("ranger", "lunar warden", {
     subclassfeature15: {
       name: "Celestial Tide",
       source: [["EldritchHunt", 154]],
-      minLevel: 7,
+      minlevel: 15,
       recovery: "long rest",
       oncelr: true,
       usages: 1,
@@ -1432,7 +1432,7 @@ AddSubClass("rogue", "blade of radiance", {
     subclassfeature9: {
       name: "Righteous Armament",
       source: [["EldritchHunt", 160]],
-      minLevel: 9,
+      minlevel: 9,
       description: desc([
         "At 9th level your faith gives you the power to rebel against fate itself. You learn the following features that each use your Divine points:",
         "● Chains of Judgement. When you hit a creature with your sanctified blade, you can expend one Divine point to create radiant chains that restrain the creature. The target must succeed on a Strength saving throw against your Radiance save DC or take radiant damage equal to your Wisdom modifier and become restrained until the end of your next turn.",
@@ -1443,7 +1443,7 @@ AddSubClass("rogue", "blade of radiance", {
     subclassfeature13: {
       name: "Saintly Revelations",
       source: [["EldritchHunt", 160]],
-      minLevel: 13,
+      minlevel: 13,
       description: desc([
         "You can speak a command word (no action required) to cause your blade to emit bright light in a 30-foot radius and dim light for an additional 30 feet. The light lasts until you speak the command word again or you stow your weapon. While emitting light in this way, the weapon is considered a magic weapon and attacks made with it deal an extra 2d4 radiant damage on a hit.",
         "In addition, while wielding the blade, as an action, you can cast spirit guardians, requiring no components. Creatures within the area of the spell are considered within 5 feet of an enemy for the purposes of your Sneak Attack. Once you cast the spell in this way, you can't do so again until you finish a long rest, unless you expend three Divine points to use it again.",
