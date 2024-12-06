@@ -591,9 +591,183 @@ SpellsList["dampen gravity"] = {
   compMaterial: "a feather",
   duration: "1h",
   description:
-    "All crea in the sphere gain x2 jump distance, speed +10ft, ADV on Acrobatics, 0 fall dmg ",
+    "All crea of choice in the sphere gain x2 jump distance, speed +10ft, ADV on Acrobatics, 0 fall dmg ",
   descriptionFull:
     "You focus your powers to lessen the call of gravity in a 60-foot-radius sphere that moves with you, centered on you. All creatures of your choice in the sphere have their jump distance doubled and their speed increased by 10 feet. They also have advantage on Acrobatics checks and ignore falling damage if they end their fall within the sphere.",
+};
+
+SpellsList["displacing maw"] = {
+  name: "Displacing Maw",
+  classes: ["warlock", "wizard"],
+  source: [["EldritchHunt", 194]],
+  level: 3,
+  school: "Conj",
+  time: "1 a",
+  range: "10ft",
+  components: "V,S",
+  duration: "Instantaneous",
+  description:
+    "Crea makes a Str Save. If fail, takes 4d8(+1d8/SL) piercing dmg & transported to a point in 60ft(+10ft/SL). If success, takes half dmg and not transported.",
+  descriptionFull:
+    "Your rib cage opens up violently, forming a maw that attempts to devour a creature within range. The creature must make a Strength saving throw. On a failure, it takes 4d8 piercing damage and is transported through magic to a point of your choice on the ground within 60 feet of you, where the maw reappears and regurgitates them. On a success, it takes half as much damage and is not transported." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8, and the teleportation range increases by 10 feet, for each slot level above 3rd.",
+};
+
+SpellsList["malicious rancor"] = {
+  name: "Malicious Rancor",
+  classes: ["warlock"],
+  source: [["EldritchHunt", 194]],
+  level: 3,
+  school: "Evoc",
+  time: "1 a",
+  range: "60ft(10ft radius)",
+  components: "V,S,M",
+  compMaterial:
+    "(a skull that belonged to a creature that succumbed to a curse, worth at least 1 sp, which the spell consumes",
+  duration: "1 rnd",
+  description:
+    "Ranged spell atk. Crea takes 1d10 necrotic dmg. Hit or miss, the skull explodes, creas in 10ft make a Wis Save, take 5d4(+2d4/SL) psychic, or half if success. Til your next turn, if a crea enters or end turns there, they do the Save.",
+  descriptionFull:
+    "You hurl a deformed skull covered in scratches and holes and strewn in curses at a creature within range, where the skull explodes with violent hatred. Make a ranged spell attack against the creature. On a hit, the target takes 1d10 necrotic damage. Hit or miss, the skull then detonates, emitting a psychic wailing from that point. Each creature within 10 feet of that point must make a Wisdom saving throw, taking 5d4 psychic damage on a failed save, or half as much damage on a successful one. Until the start of your next turn, if a creature enters the area or ends its turn there, it must make the saving throw against the skull’s damage." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the psychic damage increases by 2d4 for each slot level above 3rd.",
+};
+
+SpellsList["malicious rancor"] = {
+  name: "Malicious Rancor",
+  classes: ["warlock"],
+  source: [["EldritchHunt", 194]],
+  level: 3,
+  school: "Evoc",
+  time: "1 a",
+  range: "60ft(10ft radius)",
+  components: "V,S,M",
+  compMaterial:
+    "a skull that belonged to a creature that succumbed to a curse, worth at least 1 sp, which the spell consumes",
+  duration: "1 rnd",
+  description:
+    "Ranged spell atk. Crea takes 1d10 necrotic dmg. Hit or miss, the skull explodes, creas in 10ft make a Wis Save, take 5d4(+2d4/SL) psychic, or half if success. Til your next turn, if a crea enters or end turns there, they do the Save.",
+  descriptionFull:
+    "You hurl a deformed skull covered in scratches and holes and strewn in curses at a creature within range, where the skull explodes with violent hatred. Make a ranged spell attack against the creature. On a hit, the target takes 1d10 necrotic damage. Hit or miss, the skull then detonates, emitting a psychic wailing from that point. Each creature within 10 feet of that point must make a Wisdom saving throw, taking 5d4 psychic damage on a failed save, or half as much damage on a successful one. Until the start of your next turn, if a creature enters the area or ends its turn there, it must make the saving throw against the skull’s damage." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the psychic damage increases by 2d4 for each slot level above 3rd.",
+};
+
+SpellsList["osseous cage"] = {
+  name: "Osseous Cage",
+  classes: ["druid", "warlock", "wizard"],
+  source: [["EldritchHunt", 194]],
+  level: 3,
+  school: "Conj",
+  time: "1 a",
+  range: "Self(10ft-radius sphere)",
+  components: "V,S",
+  duration: "10m",
+  description:
+    "A cage surrounds a 10ft sphere of you and give 3/4 cover. You can use a reaction to let a crea pass thru the cage. Large/Larger crea cannot enter and a pushed away when casted. Cage has AC 12, 100HP(+20HP/SL), and VULN to bludgeon.",
+  descriptionFull:
+    "You cause a cage of cartilage and bones to erupt from the ground that surrounds a 10-foot-radius sphere centered on you. The bones are thick and provide three-quarters cover to creatures inside and outside. When you or any other creature attempts to pass through the cage, you can use your reaction to let them through. Large or Larger creatures cannot enter the cage, and are pushed to the nearest unoccupied space if they are within the cage’s area when it first appears. The osseous cage has AC 12, 100 hit points, and vulnerability to bludgeoning damage. If you cast this spell again while you already have a cage summoned, the previous cage turns to dust." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the cage has an additional 20 hit points for each slot level above 3rd.",
+};
+
+SpellsList["Osseous Impalement"] = {
+  name: "Osseous Impalement",
+  classes: ["sorcerer", "warlock", "wizard"],
+  source: [["EldritchHunt", 194]],
+  level: 3,
+  school: "Conj",
+  time: "1 a",
+  range: "60ft",
+  components: "V,S,M",
+  compMaterial: "a calcified bamboo stick",
+  duration: "Conc, 1m",
+  description:
+    "Target up to 4 crea, they make Dex Save or take 3d10(+1d10/SL) piercing dmg, is restrained and take another 1d10(+1d10/SL) piercing at turn start. A crea can use its action to do an Ath Check vs. your Spell Save DC to free itself.",
+  descriptionFull:
+    "Massive bone spikes sprout under up to four creatures on the ground of your choice you can see within range. They must succeed on a Dexterity saving throw or take 3d10 piercing damage and be impaled by the spike, becoming restrained and held aloft 5 feet in the air for the duration. A creature restrained in this way takes 1d10 piercing damage at the start of each of its turns. A creature can use its action to make an Athletics check contested by your spell save DC, breaking the bone spike and freeing itself on a success." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the damage (both initial and ongoing) increases by 1d10 for each slot level above 3rd.",
+};
+
+SpellsList["radiant bell"] = {
+  name: "Radiant Bell",
+  classes: ["bard", "cleric"],
+  source: [["EldritchHunt", 195]],
+  level: 3,
+  school: "Conj",
+  time: "1 a",
+  range: "Self(30ft radius)",
+  components: "V,S,M",
+  compMaterial:
+    "a silvered choir bell* worth at least 5 gp, which the spell consumes",
+  duration: "Instantaneous",
+  description:
+    "Any crea of choice in 30ft can end a conditions: charmed, frightened, poisoned, petrified, or stunned. Does not work on deafened crea.",
+  descriptionFull:
+    "You ring an arcane, silver bell, imbuing it with healing magics that cure the afflicted. Choose any number of creatures within 30 feet. For each target, you can end one of the following conditions: charmed, frightened, poisoned, petrified, or stunned. This cure does not work if a target is deafened.",
+};
+
+SpellsList["radiant slaughter"] = {
+  name: "Radiant Slaughter",
+  classes: ["cleric", "paladin", "warlock"],
+  source: [["EldritchHunt", 195]],
+  level: 3,
+  school: "Conj",
+  time: "1 a",
+  range: "Self(30ft radius)",
+  components: "V,S,M",
+  compMaterial: "the petrified fetus of a Great One",
+  duration: "Instantaneous",
+  description:
+    "Each crea in range make a Dex Save. If fail, crea takes 2d6 force, 3d6 radiant & prone. If success, half dmg & isnt prone. Crea within 5ft make it with DISADV",
+  descriptionFull:
+    "You summon a small nova of eldritch power in this secret technique from the Obitus Scholare. Each creature within 30 feet of you must make a Dexterity saving throw. On a failure, a creature takes 2d6 force damage, 3d6 radiant damage, and is knocked prone. On a success, it takes half as much damage and isn’t knocked prone. Creatures within 5 feet of you make this saving throw with disadvantage." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the force and radiant damage both increase by 1d6 for each slot level above 3rd.",
+};
+
+SpellsList["rubber bones"] = {
+  name: "Rubber Bones",
+  classes: ["sorcerer", "warlock", "wizard"],
+  source: [["EldritchHunt", 195]],
+  level: 3,
+  school: "Trans",
+  time: "1 a",
+  range: "Touch",
+  components: "V,S",
+  duration: "Conc, 10m",
+  description:
+    "Gain: escape grapple with 5ft of movement, squeeze thru space for crea 2 sizes smaller, ADV on Dex Save, RES to Bludgeon and +5ft reach. +1 target per SL.",
+  descriptionFull:
+    "You touch a willing creature. Its bones become soft and rubbery, and it gains the following benefits:" +
+    +"\n● It can spend 5 feet of movement to escape a grapple without requiring an ability check and can squeeze through a space that is large enough for a creature two sizes smaller than it." +
+    +"\n● It has advantage on Dexterity saving throws." +
+    "\n● It has resistance to bludgeoning damage." +
+    +"\n● Its reach with melee attacks increases by 5 feet." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd.",
+};
+
+SpellsList["spectral fury"] = {
+  name: "Spectral Fury",
+  classes: ["paladin", "ranger"],
+  source: [["EldritchHunt", 195]],
+  level: 3,
+  school: "Conj",
+  time: "1 a",
+  range: "30ft",
+  components: "V,S,M",
+  compMaterial: "a melee weapon worth at least 1 sp",
+  duration: "Instantaneous",
+  description:
+    "3 spectral dupes hits enemy. Roll hit for each. Crea takes 4d8(+2d8/SL) dmg of your weapon dmg type. BnsA to move up to 30ft in a straight line to a target (no opp.atk) and make a single melee atk.",
+  descriptionFull:
+    "You send forth three spectral duplicates of yourself to strike down enemies within 30 feet of you. You can order them to strike one target or several. Make a melee spell attack for each spectral duplicate. On a hit, a target takes 4d8 damage of your weapon’s damage type." +
+    +"\nYou can then use a bonus action to move up to 30 feet in a straight line towards one of the targets without provoking opportunity attacks, streaking through a spectral trail, and make a single melee weapon attack." +
+    AtHigherLevels +
+    "When you cast this spell using a spell slot of 4th level or higher, the damage your spectral duplicates inflict increases by 2d8 for each slot level above 3rd.",
 };
 
 //TODO: ITEMS
