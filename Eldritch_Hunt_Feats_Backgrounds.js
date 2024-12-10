@@ -38,7 +38,7 @@ FeatsList["cannoneer"] = {
   description:
     "Your STR increase by 1 (max 20) and gain proficiency with cannons.",
   scores: [1, 0, 0, 0, 0, 0],
-  prereqeval: function (v) {
+  prereqeval: function (v) { 
     return v.characterLevel >= 8 && What("Str") >= 19;
   },
 };
@@ -53,15 +53,35 @@ FeatsList["cosmos touched"] = {
     firstCol: "oncelr",
   },
   descriptionFull: desc([
-    "You learn the alter self spell and one 1st-level abjuration or transmutation spell of your choice. You can cast each of these spells once without expending a spell slot. Once you cast either of these feat’s spells, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. Your spellcasting ability for these spells is the ability score increased by this feat.",
+    "You learn the Alter Self spell and one 1st-level Abjuration or Transmutation spell of your choice. You can cast each of these spells once without expending a spell slot. Once you cast either of these feat’s spells, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. Your spellcasting ability for these spells is the ability score increased by this feat.",
   ]),
   description:
     "Your Int, Wis or Cha increase by 1 (max 20) and you learn 'alter self' and one 1st level abjuration or transmutation",
   // scores : [0, 0, 0, 1, 1, 1],
-  scorestxt: "+1 Intelligence or Wisdom or Charisma (max 20)",
-  prereqeval: function (v) {
-    return v.characterLevel >= 8 && What("Str") >= 19;
-  },
+  spellcastingBonus : [{
+		name : "Alter Self",
+		spells : ["alter self"],
+		selection : ["alter self"],
+		firstCol : "oncelr"
+	}, {
+		name : "1st-level Abjur/Trans spell",
+		'class': "any",
+		school : ["Abjur", "Trans"],
+		level : [1, 1],
+		firstCol : "oncelr"
+	}],
+  allowUpCasting : true,
+	choices : ["Intelligence", "Wisdom"],
+	"intelligence" : {
+		description : "I learn Alter Self and one 1st level Abjuration or Transmutation spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them " + (typePF ? "by expending" : "with") + " a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
+		spellcastingAbility : 4,
+		scores : [0, 0, 0, 1, 0, 0]
+	},
+	"wisdom" : {
+		description : "I learn Alter Self and one 1st level Abjuration or Transmutation spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
+		spellcastingAbility : 5,
+		scores : [0, 0, 0, 0, 1, 0]
+	},
 };
 
 FeatsList["focused hunter"] = {
