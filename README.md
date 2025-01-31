@@ -5,7 +5,7 @@ This git repository holds different fan-created materials that can be used with 
 ## How to use
 
 1. Download the latest version of the PDF from [MPMB's website](https://www.flapkan.com/#download).
-2. Download all the files, and save them somewhere on your machine.
+2. Download the All in One file, and save it somewhere on your machine. (Alternaively, download the individual files and import them if needed)
 3. Open the PDF and click on the bookmark **Functions** >> **Add Extra Materials**.
 4. From the menu that appears, select the option **Import a file with additional material**.
 5. In the dialog that opens, click **Add file**, and open the file you saved in step 1.
