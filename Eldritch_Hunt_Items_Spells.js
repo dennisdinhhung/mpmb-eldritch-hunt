@@ -12,28 +12,6 @@ SourceList["EldritchHunt"] = {
   date: "2024/07/01",
 };
 
-//TODO: SPELLS
-
-// SpellsList["ashardalon's stride"] = { // contains contributions by Nod_Hero (Flame Stride in UA:DO)
-// 	name : "Ashardalon's Stride",
-// 	nameAlt : "Flame Stride",
-// 	classes : ["artificer", "ranger", "sorcerer", "wizard"],
-// 	source : [["FToD", 19], ["UA:DO", 6]],
-// 	level : 3,
-// 	school : "Trans",
-// 	time : "1 bns",
-// 	range : "Self",
-// 	components : "V,S",
-// 	duration : "Conc, 1 min",
-// 	description : "+20+5/SL ft speed; provoke no opp atks for moving; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
-// 	descriptionShorter : "+20+5/SL ft spd; no opp atks with move; all crea/obj in 5 ft of path 1d6+1d6/SL Fire dmg",
-// 	descriptionMetric : "+6+1,5/SL m spd; provoke no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
-// 	descriptionShorterMetric : "+6+1,5/SL m spd; no opp atks in move; all crea/obj in 1,5 m of path 1d6+1d6/SL Fire dmg",
-// 	descriptionFull : "The billowing flames of a dragon blast from your feet, granting you explosive speed. For the duration, your speed increases by 20 feet and moving doesn't provoke opportunity attacks."+
-// 	"\n   When you move within 5 feet of a creature or an object that isn't being worn or carried, it takes 1d6 fire damage from your trail of heat. A creature or object can take this damage only once during a turn."+
-// 	AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. The spell deals an additional 1d6 fire damage for each slot level above 3rd."
-// };
-
 SpellsList["bestial roar"] = {
   name: "Bestial Roar",
   classes: ["bard", "druid", "sorcerer", "warlock"],
