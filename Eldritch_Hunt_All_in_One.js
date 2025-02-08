@@ -2345,10 +2345,10 @@ AddSubClass("rogue", "shadow", {
   },
 });
 
-AddSubClass("rogue", "shadow", {
-  regExpSearch: /^(?=.*rogue)(?=.*shadow).*$/i,
-  subname: "Shadow",
-  fullname: "Shadow",
+AddSubClass("sorcerer", "scion of madness", {
+  regExpSearch: /^(?=.*madness)(?=.*scion).*$/i,
+  subname: "Scion of Madness",
+  fullname: "Scion of Madness",
   source: [["EldritchHunt", 161]],
   features: {
     subclassfeature1: {
