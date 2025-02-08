@@ -2055,7 +2055,7 @@ AddSubClass("paladin", "oath of the eldritch hunt", {
 });
 
 AddSubClass("ranger", "lunar warden", {
-  regExpSearch: /^(?=.*ranger)(?=.*lunar)(?=.*warden).*$/i,
+  regExpSearch: /^(?=.*lunar)(?=.*warden).*$/i,
   subname: "Lunar Warden",
   source: [["EldritchHunt", 152]],
   fullname: "Lunar Warden",
@@ -2141,7 +2141,7 @@ AddSubClass("ranger", "lunar warden", {
 });
 
 AddSubClass("ranger", "torturer conclave", {
-  regExpSearch: /^(?=.*ranger)(?=.*torturer)(?=.*conclave).*$/i,
+  regExpSearch: /^(?=.*torturer)(?=.*conclave).*$/i,
   subname: "Torturer Conclave",
   source: [["EldritchHunt", 155]],
   fullname: "Torturer Conclave",
@@ -2238,7 +2238,7 @@ AddSubClass("ranger", "torturer conclave", {
 });
 
 AddSubClass("rogue", "blade of radiance", {
-  regExpSearch: /^(?=.*rogue)(?=.*blade)(?=.*radiance).*$/i,
+  regExpSearch: /^(?=.*blade)(?=.*radiance).*$/i,
   subname: "Blade of Radiance",
   fullname: "Blade of Radiance",
   source: [["EldritchHunt", 159]],
@@ -2293,9 +2293,9 @@ AddSubClass("rogue", "blade of radiance", {
 });
 
 AddSubClass("rogue", "shadow", {
-  regExpSearch: /^(?=.*rogue)(?=.*shadow).*$/i,
-  subname: "Shadow",
-  fullname: "Shadow",
+  regExpSearch: /^(?=.*eldritch|shadow).*$/i,
+  subname: "Shadow Rogue",
+  fullname: "Shadow Rogue",
   source: [["EldritchHunt", 161]],
   features: {
     subclassfeature3: {
@@ -2394,7 +2394,7 @@ AddSubClass("sorcerer", "scion of madness", {
 });
 
 AddSubClass("warlock", "the void", {
-  regExpSearch: /^(?=.*warlock)(?=.*void).*$/i,
+  regExpSearch: /^(?=.*void).*$/i,
   subname: "The Void",
   fullname: "The Void",
   source: [["EldritchHunt", 165]],
@@ -2469,7 +2469,7 @@ AddSubClass("warlock", "the void", {
 });
 
 AddSubClass("wizard", "osteomancer", {
-  regExpSearch: /^(?=.*wizard)(?=.*osteomancer).*$/i,
+  regExpSearch: /^(?=.*osteomancer).*$/i,
   subname: "Osteomancer",
   fullname: "Osteomancer",
   source: [["EldritchHunt", 170]],
