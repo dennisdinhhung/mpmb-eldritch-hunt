@@ -112,8 +112,10 @@ ClassList["jaeger"] = {
   improvements: [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5],
   attacks: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
   saves: ["Dex", "Int"],
-  skillstxt:
-    "Choose two from Acrobatics, Arcana, Athletics, History, Investigation, Medicine, Nature, Perception, Religion, Sleight of Hand, Stealth, and Survival",
+  skillstxt:{
+    primary: "Choose two from Acrobatics, Arcana, Athletics, History, Investigation, Medicine, Nature, Perception, Religion, Sleight of Hand, Stealth, and Survival",
+    secondary: "Choose two from Acrobatics, Arcana, Athletics, History, Investigation, Medicine, Nature, Perception, Religion, Sleight of Hand, Stealth, and Survival",
+  },
   armorProfs: {
     primary: [true, true, false, false],
     secondary: [true, true, false, false],
